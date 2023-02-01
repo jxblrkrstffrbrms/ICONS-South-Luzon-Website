@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script defer src="app.js"></script>
     </head>
 
     <body>
@@ -27,23 +28,49 @@
             </nav>
 
             <div class="text-box">
-                <h1>ICONS South Luzon</h1>
-                <p>Innovation Consortium or ICONS South Luzon is a regional startup ecosystem consortium.</p>
+                <h1 class="maintext">ICONS South Luzon</h1>
+                <p class="description"><strong>Innovation Consortium</strong> or <strong>ICONS South Luzon</strong> is a regional startup ecosystem consortium that endeavors<br>
+                     in partnership with various industry players, line agencies, and other agencies in sponsoring<br>
+                      innovation events that support startup development and spur innovation.</p>
                 <a href="" class="hero-btn">Learn More</a>
             </div>
 
         </section>
 
-        <script>
-            var navLinks = document.getElementById("navLinks");
+        <section class="about">
+            <h1 class="text">ABOUT US</h1>
+            <p class="desc">We are a regional startup ecosystem consortium</p>
 
-            function showMenu(){
-                navLinks.style.right = "0";
-            }
+            <div class="row">
+                <div class="about-col">
+                    <img src="icons/partner.png" class="icon">
+                    <p>Endeavor partnership with various industry players</p>
+                </div>
 
-            function hideMenu(){
-                navLinks.style.right = "-200px";
-            }
-        </script>
+                <div class="about-col">
+                    <img src="icons/enterprise.png" class="icon">
+                    <p>Line agencies and other agencies in sponsoring innovation events that support startup development</p>
+                </div>
+
+                <div class="about-col">
+                    <img src="icons/innovation.png" class="icon">
+                    <p>Spur innovation</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="footer">
+            <h4>CONNECT WITH US</h4>
+
+            <div class="icons">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-linkedin"></i>
+            </div>
+            <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce♥</p>
+        </section>
+        
     </body>
 </html>
