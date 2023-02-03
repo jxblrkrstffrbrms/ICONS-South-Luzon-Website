@@ -114,10 +114,6 @@ nav .fa{
     margin: auto;
     text-align: center;
     padding-top: 50px;
-    opacity: 0;
-    filter: blur(5px);
-    transform: translateX(-100%);
-    transition: all 1.5s;
 }
 
 .line{
@@ -136,10 +132,24 @@ nav .fa{
     margin-bottom: 1%;
 }
 
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(50%);
+    transition: all 1s;
+}
+
+.hidden1{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 2s;
+}
+
 .show{
     opacity: 1;
     filter: blur(0);
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 @-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
@@ -195,6 +205,7 @@ p{
     padding: 50px;
 }
 
+
 /*----- consortium -----*/
 
 .consortium-div{
@@ -220,6 +231,7 @@ p{
     width: 80%;
     text-align: center;
 }
+
 
 .cons-text{
     font-size: 20px;
@@ -264,7 +276,39 @@ p{
     color:#000000;
 }
 
-/*----- activities -----*/
+.acts{
+    width: 60%;
+    margin: auto;
+    display: flex;
+}
+
+.act{
+    margin: 25px;
+    border-radius: 10%;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
+}
+
+.act img{
+    width: 100%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+.act-title{
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.act-desc{
+    font-size: 15px;
+    font-weight: 100;
+    padding:5%;
+    color: #000000;
+}
+
+/*----- partners -----*/
 
 .partners{
     width: 80%;
@@ -377,6 +421,16 @@ p{
         width: 30%;
         height: 30%;
         margin: auto;
+    }
+
+    .acts{
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+    }
+
+    .act{
+        padding-bottom: 10px;
     }
 
 }
