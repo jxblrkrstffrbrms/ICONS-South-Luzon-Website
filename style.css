@@ -301,6 +301,13 @@ p{
     padding-bottom: 2%;
 }
 
+.act-title2{
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 6%;
+    padding-bottom: 2%;
+}
+
 .act-desc{
     font-size: 15px;
     font-weight: 100;
@@ -359,6 +366,50 @@ p{
     margin: 0 13px;
     cursor: pointer;
     padding: 18px 0;
+}
+
+/*----- ACTIVITIES PAGE -----*/
+
+.actheader{
+    min-height: 40vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.384),rgba(255, 255, 255, 0)) ,url(images/banner1.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.articles{
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.gallery-div{
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(images/media8.jpg);
+}
+
+.gallery-div img{
+    position: relative;
+    width: 80%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.gallery-text{
+    color: #ffffff;
+    font-size: 50px;
+    margin: auto;
+    font-weight: 700;
+    padding-top: 25%;
+}
+
+.gallery-col{
+    width: 80%;
+    text-align: center;
 }
 
 /*----- for smaller devices -----*/
@@ -431,6 +482,23 @@ p{
 
     .act{
         padding-bottom: 10px;
+    }
+
+    .articles{
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+    }
+
+    .gallery-div .row .gallery-col{
+        width: 100%;
+        position: relative;
+        display: block;
+        text-align: center;
+    }
+
+    .gallery-text{
+        width: 90%;
     }
 
 }

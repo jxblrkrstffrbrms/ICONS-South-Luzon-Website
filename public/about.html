@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
         <script defer src="app.js"></script>
         <style>
             .bg-ecosystem {
@@ -26,6 +27,10 @@
                 position: relative;
                 border-radius: 25px;
             }
+
+            .height-transition {
+                transition: height 0.5s ease-in-out;
+            }
         </style>
     </head>
 
@@ -38,12 +43,14 @@
                     <ul>
                         <li><a href="">HOME</a></li>
                         <li>
-                            <a href="./about.html" id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar">ABOUT
-                                <svg class="inline-flex w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                    </path>
-                                </svg>
-                            </a>
+                            <a href="./about.html">
+                                ABOUT
+                            </a>                           
+                            <svg id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="inline-flex w-5 h-5 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+
                             <div id="dropdownNavbar" class="z-10 hidden font-sm bg-black divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-white dark:divide-gray-600">
                                 <ul class="text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                   <li>
@@ -65,8 +72,8 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
 
-            <div class="text-box mt-28">
-                <h1 class="maintext mb-12 md:mb-7">ABOUT US</h1>
+            <div class="text-box mt-28 md:mt-14">
+                <h1 class="maintext mb-12 md:mt-20 md:mb-1">ABOUT US</h1>
                 <div class="flex text-center w-full">
                     <div class="w-1/3">
 
@@ -121,33 +128,112 @@
 
                 </div>
             </div>
-            <div class="flex flex-col"> 
-                <div class="flex">
-                    <div class="w-1/3 ml-12 max-h-5">
-                        <div class="w-5/6 mx-auto p-6 bg-gradient-to-r border-blue-500 rounded-lg shadow dark:bg-gradient-to-r from-blue-900 to-blue-500 dark:border-blue-500">
-                            <img class="w-20 h-20 mb-2 text-gray-500 dark:text-gray-400"  src="images/team.png"/>
-                            <a href="./act1.html">
-                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Organize a Regional Startup Ecosystem Consortium</h5>
-                            </a>
+
+            <div class="flex flex-col mx-12">
+                
+            <div id="default-carousel" class="relative" data-carousel="static">
+                <div class="relative h-80 overflow-hidden rounded-lg md:h-90">
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="flex space-x-4">
+                            <div class="group height-transition w-1/3 h-60 mx-auto p-6 border-blue-500 rounded-lg shadow dark:bg-blue-900 dark:border-blue-500 text-center">
+                                <img class="w-20 h-20 mb-2 text-gray-500 dark:text-gray-400 mx-auto group-hover:hidden"  src="images/team.png"/>
+                                <a href="#.html">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">Organize a Regional Startup Ecosystem Consortium</h5>
+                                </a>
+                                <div class="text-white text-left mb-10 mt-16 group-hover:mt-0">
+                                    <ul class="text-sm">
+                                        <li>• Conduct round table discussion with founding members of the consortium</li>
+                                        <li>• Create and ratify the constitution and by-laws</li>
+                                        <li>• Establish the organizational structure</li>
+                                        <li>• Develop a web portal for the Consortium</li>
+                                        <li>• Secure a joint RDC Resolution for the Consortium</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="group height-transition w-1/3 h-60 mx-auto p-6 border-blue-500 rounded-lg shadow dark:bg-blue-900 dark:border-blue-500 text-center">
+                                <img class="group-hover:hidden w-20 h-20 mb-2 text-gray-500 dark:text-gray-400 mx-auto"  src="images/file.png"/>
+                                <a href="#.html">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">Create, Establish, and Implement a Regional Startup Development Program</h5>
+                                </a>
+                                <div class="text-white text-left my-10">
+                                    <ul class="text-sm">
+                                        <li>• Focus group discussion with the partner TBIs and other startup enablers</li>
+                                        <li>• Develop the Regional Startup Development Program</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="group height-transition w-1/3 h-60 mx-auto p-6 border-blue-500 rounded-lg shadow dark:bg-blue-900 dark:border-blue-500 text-center">
+                                <img class="group-hover:hidden w-20 h-20 mb-2 text-gray-500 dark:text-gray-400 mx-auto"  src="images/promotion.png"/>
+                                <a href="#.html">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">Develop Promotion Strategies for Various Startup Programs</h5>
+                                </a>
+                                <div class="text-white text-left mt-16 group-hover:mt-10">
+                                    <ul class="text-sm">
+                                        <li>• Host at least one (1) awareness activity per month</li>
+                                        <li>• Conduct proposal writeshop sessions</li>
+                                        <li>• Host awareness sessions for startup enablers</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-1/3">
-                        <div class="w-5/6 mx-auto p-6 bg-gradient-to-r border-blue-500 rounded-lg shadow dark:bg-gradient-to-r from-blue-700 to-blue-500 dark:border-blue-500">
-                            <img class="w-20 h-20 mb-2 text-gray-500 dark:text-gray-400"  src="images/promotion.png"/>
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Develop Promotion Strategies for Various Startup Programs</h5>
-                            </a>
-                        </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <div class="flex space-x-4">
+                            <div class="group height-transition w-1/3 h-60 mx-auto p-6 border-blue-500 rounded-lg shadow dark:bg-blue-900 dark:border-blue-500 text-center">
+                                <img class="group-hover:hidden w-20 h-20 mb-2 text-gray-500 dark:text-gray-400 mx-auto"  src="images/mentorship.png"/>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">Establish a Mentor Pool and Regional Startup Mentorship Program</h5>
+                                </a>
+                                <div class="text-white text-left mt-16 group-hover:mt-10">
+                                    <ul class="text-sm">
+                                        <li>• Conduct roundtable discussions with mentors</li>
+                                        <li>• Establish the Regional Mentor pool</li>
+                                        <li>• At least 22 startups mentored</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="group height-transition w-1/3 h-60 mx-auto p-6 border-blue-500 rounded-lg shadow dark:bg-blue-900 dark:border-blue-500 text-center">
+                                <img class="group-hover:hidden w-20 h-20 mb-2 text-gray-500 dark:text-gray-400 mx-auto"  src="images/mentorship.png"/>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">Implement a Skill Enhancement Program for TBIs and Other Startup Enablers</h5>
+                                </a>
+                                <div class="text-white text-left mt-16 group-hover:mt-4">
+                                    <ul class="text-sm">
+                                        <li>• Craft the skills enhancement program for TBIs and startup enablers</li>
+                                        <li>• Train at least 20 TBI personnel</li>
+                                        <li>• Conduct awareness sessions / capacity building sessions with other startup enablers in the region</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="group height-transition w-1/3 h-60 mx-auto p-6 border-blue-500 rounded-lg shadow dark:bg-blue-900 dark:border-blue-500 text-center">
+                                <img class="group-hover:hidden w-20 h-20 mb-2 text-gray-500 dark:text-gray-400 mx-auto"  src="images/mentorship.png"/>
+                                <a href="#">
+                                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">Implement Collaborative Programs/Activities for the Ecosystem</h5>
+                                </a>
+                                <div class="text-white text-left mt-16 group-hover:mt-10">
+                                    <ul class="text-sm">
+                                        <li>• Conduct 1 Regional Startup Conference</li>
+                                        <li>• Host at least 1 Regional Business Matching Activity</li>
+                                    </ul>
+                                </div>
+                            </div>
                     </div>
-                    <div class="w-1/3">
-                        <div class="w-5/6 mx-auto p-6 bg-gradient-to-r border-blue-500 rounded-lg shadow dark:bg-gradient-to-r from-blue-700 to-blue-500 dark:border-blue-500">
-                            <img class="w-20 h-20 mb-2 text-gray-500 dark:text-gray-400"  src="images/file.png"/>
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Create, Establish, and Implement a Regional Startup Development Program</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
             </div>
         </div>
 
@@ -174,19 +260,15 @@
                         </div>
                     </div>
 
-                    <p class="text-white text-lg lg:text-2xl font-normal text-center px-12 pt-5 align-middle">
+                    <p class="text-white text-lg lg:text-2xl font-normal text-center px-12 lg:pt-5 md:py-8 align-middle">
                         Establishes a regional startup development plan, develop strategies to promote the startup programs of PCIEERD/DOST, establish a pool of mentors and conduct mentorship programs for startups to increase fundability, craft a skills enhancement program for the startup enablers, and implement collaborative programs/activities for the ecosystem.
                     </p>
-
-                    <div>
-                        sheesh
-                    </div>
                 </div>
             </div>
         </div>
 
         <div class="flex flex-col text-center my-8" id="org">
-            <div class="flex-col text-4xl font-bold">
+            <div class="flex-col text-3xl font-bold">
                 ORGANIZATIONAL STRUCTURE
                 <div class="flex text-center">
                     <div class="w-1/3">
@@ -218,6 +300,7 @@
             </div>
             <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce♥</p>
         </section>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </body>
 </html>
