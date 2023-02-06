@@ -586,11 +586,6 @@ video {
   margin-right: auto;
 }
 
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -604,6 +599,46 @@ video {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.mx-64 {
+  margin-left: 16rem;
+  margin-right: 16rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-56 {
+  margin-left: 14rem;
+  margin-right: 14rem;
+}
+
+.mx-40 {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.mx-36 {
+  margin-left: 9rem;
+  margin-right: 9rem;
 }
 
 .mt-28 {
@@ -626,8 +661,8 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .mt-4 {
@@ -652,14 +687,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
 }
 
 .block {
@@ -694,10 +721,6 @@ video {
   height: 20rem;
 }
 
-.h-60 {
-  height: 15rem;
-}
-
 .h-20 {
   height: 5rem;
 }
@@ -720,18 +743,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
-.h-7 {
-  height: 1.75rem;
-}
-
-.h-72 {
-  height: 18rem;
 }
 
 .w-5 {
@@ -855,6 +866,10 @@ video {
   border-bottom-width: 4px;
 }
 
+.border-b-8 {
+  border-bottom-width: 8px;
+}
+
 .border-yellow-300 {
   --tw-border-opacity: 1;
   border-color: rgb(253 224 71 / var(--tw-border-opacity));
@@ -940,6 +955,10 @@ video {
   padding: 3rem;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .px-80 {
   padding-left: 20rem;
   padding-right: 20rem;
@@ -989,16 +1008,12 @@ video {
   padding-top: 1.25rem;
 }
 
-.pr-4 {
-  padding-right: 1rem;
-}
-
 .pt-24 {
   padding-top: 6rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
+.pr-4 {
+  padding-right: 1rem;
 }
 
 .text-left {
@@ -1431,22 +1446,6 @@ html{
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
-.hover\:pt-6:hover {
-  padding-top: 1.5rem;
-}
-
-.hover\:pt-12:hover {
-  padding-top: 3rem;
-}
-
-.hover\:pt-24:hover {
-  padding-top: 6rem;
-}
-
-.hover\:pt-20:hover {
-  padding-top: 5rem;
-}
-
 .hover\:pt-16:hover {
   padding-top: 4rem;
 }
@@ -1624,10 +1623,6 @@ html{
 
   .md\:mb-1 {
     margin-bottom: 0.25rem;
-  }
-
-  .md\:h-96 {
-    height: 24rem;
   }
 
   .md\:px-8 {
