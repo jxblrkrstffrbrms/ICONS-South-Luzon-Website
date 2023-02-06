@@ -9,7 +9,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.384),rgba(255, 255, 255, 0)) ,url(images/banner1.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0)) ,url(images/banner1.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -180,7 +180,7 @@ nav .fa{
     margin-bottom: 5%;
     padding: 20px 12px;
     box-sizing: border-box;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 p{
@@ -197,7 +197,9 @@ p{
 }
 
 .about-col:hover{
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    transform:scale(1.1);
+    z-index:2;
 }
 
 .icon{
@@ -284,8 +286,9 @@ p{
 
 .act{
     margin: 25px;
-    border-radius: 10%;
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
+    border-radius: 10%; 
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    transition: 0.7s;
 }
 
 .act img{
@@ -314,6 +317,11 @@ p{
     padding:5%;
     color: #000000;
 }
+
+.act:hover{
+    transform: scale(1.1);
+    z-index: 2;
+} 
 
 /*----- partners -----*/
 
@@ -408,8 +416,12 @@ p{
 }
 
 .gallery-col{
-    width: 80%;
+    width: 100%;
     text-align: center;
+}
+
+.gallery-col img{
+    width: 90%;
 }
 
 /*----- for smaller devices -----*/
