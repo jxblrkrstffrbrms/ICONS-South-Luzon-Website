@@ -9,7 +9,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-const hiddenElements = document.querySelectorAll('.about');
+const hiddenElements = document.querySelectorAll('.hidden, .hidden1');
 hiddenElements.forEach((el) => observer.observe(el));
 
 var navLinks = document.getElementById("navLinks");
@@ -21,5 +21,3 @@ var navLinks = document.getElementById("navLinks");
             function hideMenu(){
                 navLinks.style.right = "-200px";
             }
-
-
