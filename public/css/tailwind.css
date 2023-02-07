@@ -611,6 +611,11 @@ video {
   margin-right: 8rem;
 }
 
+.mx-72 {
+  margin-left: 18rem;
+  margin-right: 18rem;
+}
+
 .mt-28 {
   margin-top: 7rem;
 }
@@ -761,6 +766,14 @@ video {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-1\/12 {
+  width: 8.333333%;
 }
 
 .cursor-pointer {
@@ -974,6 +987,11 @@ video {
   padding-right: 10rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -984,6 +1002,18 @@ video {
 
 .pr-4 {
   padding-right: 1rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
 }
 
 .text-left {
