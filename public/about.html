@@ -3,13 +3,14 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ICONS South Luzon</title>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="./css/tailwind.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet">
+        <script defer src="app.js"></script>
         <style>
             .bg-ecosystem {
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./css/images/media8.jpg);
@@ -17,14 +18,15 @@
                 background-repeat: no-repeat;
             }
 
-            .header{
-                min-height: 38vh;
+            .actheader{
+                min-height: 40vh;
                 width: 100%;
                 background-image: linear-gradient(rgba(255, 255, 255, 0.384),rgba(255, 255, 255, 0)) ,url(images/banner1.jpg);
                 background-size: cover;
                 background-position: center;
                 position: relative;
-                border-radius: 25px;
+                border-bottom-left-radius: 50px;
+                border-bottom-right-radius: 50px;
             }
         
             .card:hover .card-text {
@@ -49,59 +51,45 @@
     </head>
 
     <body>
-        <section class="header">
-            <nav>
-                <a href="index.html"><img src="images/logo.png"></a>
-                <div class="nav-links" id="navLinks">
-                    <i class="fa fa-times" onclick="hideMenu()"></i>
-                    <ul>
-                        <li><a href="">HOME</a></li>
-                        <li>
-                            <a href="./about.html">
-                                ABOUT
-                            </a>                           
-                            <svg id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="inline-flex w-5 h-5 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-                                </path>
-                            </svg>
-
-                            <div id="dropdownNavbar" class="z-10 hidden font-sm bg-black divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-white dark:divide-gray-600">
-                                <ul class="text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                                  <li>
-                                    <a href="#objectives" class="md:mt-2 block text-blue-500 md:px-8 md:pb-1 md:text-xs lg:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg dark:hover:text-black">WHO WE ARE</a>
-                                  </li>
-                                  <li>
-                                    <a href="#ecosystem" class="block hover:bg-blue-50 md:px-8 md:pb-1 md:text-xs dark:hover:bg-blue-400 rounded-lg dark:hover:text-black">ECOSYSTEM</a>
-                                  </li>
-                                  <li>
-                                    <a href="#org" class="block hover:bg-blue-400 md:px-8 md:pb-1 md:text-xs dark:hover:bg-blue-400 rounded-lg dark:hover:text-black">ORGANIZATIONAL STRUCTURE</a>
-                                  </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="">BLOGS AND ACTIVITIES</a></li>
-                        <li><a href="./connect.html">CONNECT</a></li>
-                    </ul>
+        <div>
+            <section class="actheader">
+                <nav>
+                    <a href="index.html"><img src="images/logo.png"></a>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fa fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="./about.html">ABOUT</a>
+                                <svg id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="inline-flex w-5 h-5 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+                                    </path>
+                                </svg>
+    
+                                <div id="dropdownNavbar" class="z-10 hidden font-sm bg-black divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-white dark:divide-gray-600">
+                                    <ul class="text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                                      <li>
+                                        <a href="#objectives" class="md:mt-2 block text-blue-500 md:px-8 md:pb-1 md:text-xs lg:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg dark:hover:text-black">WHO WE ARE</a>
+                                      </li>
+                                      <li>
+                                        <a href="#ecosystem" class="block hover:bg-blue-50 md:px-8 md:pb-1 md:text-xs dark:hover:bg-blue-400 rounded-lg dark:hover:text-black">ECOSYSTEM</a>
+                                      </li>
+                                      <li>
+                                        <a href="#org" class="block hover:bg-blue-400 md:px-8 md:pb-1 md:text-xs dark:hover:bg-blue-400 rounded-lg dark:hover:text-black">ORGANIZATIONAL STRUCTURE</a>
+                                      </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="activities.html">BLOGS AND ACTIVITIES</a></li>
+                            <li><a href="./connect.html">CONNECT</a></li>
+                        </ul>
+                    </div>
+                    <i class="fa fa-bars" onclick="showMenu()"></i>
+                </nav>
+                <div class="text-box">
+                    <h1 class="maintext">ABOUT US</h1>
                 </div>
-                <i class="fa fa-bars" onclick="showMenu()"></i>
-            </nav>
-
-            <div class="text-box mt-28 md:mt-14">
-                <h1 class="maintext mb-12 md:mt-20 md:mb-1">ABOUT US</h1>
-                <div class="flex text-center w-full">
-                    <div class="w-5/12">
-
-                    </div>
-                    <div class="w-1/12 border-b-8 border-yellow-300 mx-96">
-
-                    </div>
-                    <div class="w-5/12">
-
-                    </div>
-                </div>
+            </section>
             </div>
-
-        </section>
 
         <div class="flex flex-col lg:mt-10" id="objectives">
             <div class="flex flex-col w-full items-center">
