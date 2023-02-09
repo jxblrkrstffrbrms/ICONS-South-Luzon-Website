@@ -7,7 +7,7 @@
 /*----- header -----*/
 
 .header{
-    min-height: 100vh;
+    min-height: 101vh;
     width: 100%;
     background-image: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0)) ,url(images/banner1.jpg);
     background-size: cover;
@@ -178,7 +178,7 @@ nav .fa{
     background: #022e75;
     color: #000000;
     border-radius: 15px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding: 20px 12px;
     box-sizing: border-box;
     transition: 0.5s;
@@ -288,7 +288,7 @@ p{
 .act{
     margin: 25px;
     border-radius: 10%; 
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
     transition: 0.7s;
 }
 
@@ -423,6 +423,65 @@ p{
 
 .gallery-col img{
     width: 90%;
+}
+
+/*----- NEWS PAGE -----*/
+
+.news-div{
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/media8.jpg);
+}
+
+.news-div img{
+    position: relative;
+    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.news-text{
+    color: #ffffff;
+    font-size: 35px;
+    padding-top: 15%;
+    font-weight: 700;
+}
+
+.news-heading{
+    color: #ffffff;
+    font-size: 75px;
+    padding-top: 15%;
+    font-weight: 700;
+    left: auto;
+}
+
+.news-col{
+    width: 80%;
+    text-align: center;
+}
+
+
+.news-text{
+    font-size: 20px;
+    font-weight: lighter;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 70%;
+    margin: auto;
+}
+
+.news-desc{
+    width: 50%;
+    text-align: justify;
+    margin: auto;
+}
+
+.news-proper{
+    font-size: 23px;
+    font-weight: lighter;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin: auto;
+    color: #000000;
 }
 
 /*----- for smaller devices -----*/
