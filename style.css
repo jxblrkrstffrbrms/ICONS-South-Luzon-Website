@@ -12,6 +12,7 @@
     background-image: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.050),rgba(255, 255, 255, 0)) ,url(images/banner1.jpg);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     position: relative;
 
 }
@@ -111,6 +112,10 @@ nav .fa{
 /*----- about -----*/
 
 .about{
+    width: 100%;
+}
+
+.aboutsec{
     width: 80%;
     margin: auto;
     text-align: center;
@@ -215,6 +220,7 @@ p{
 .consortium-div{
     width: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/media8.jpg);
+    background-attachment: fixed;
 }
 
 .consortium-div img{
@@ -235,7 +241,6 @@ p{
     width: 80%;
     text-align: center;
 }
-
 
 .cons-text{
     font-size: 20px;
@@ -267,6 +272,13 @@ p{
 }
 
 /*----- activities -----*/
+
+.lower{
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
 .activities{
     width: 80%;
@@ -400,6 +412,7 @@ p{
 .gallery-div{
     width: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(images/media8.jpg);
+    background-attachment: fixed;
 }
 
 .gallery-div img{
