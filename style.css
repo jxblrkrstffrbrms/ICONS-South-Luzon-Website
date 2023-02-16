@@ -184,7 +184,7 @@ nav .fa{
     flex-basis: 31%;
     background: #022e75;
     color: #000000;
-    border-radius: 15px;
+    border-radius: 50px;
     margin-bottom: 3%;
     padding: 20px 12px;
     box-sizing: border-box;
@@ -452,6 +452,10 @@ p{
     width: 90%;
 }
 
+#cards{
+    border-radius: 50px;
+}
+
 /*----- NEWS PAGE -----*/
 
 .news-div{
@@ -537,6 +541,7 @@ p{
     background-position: center;
     position: relative;
     transition: 0.5s;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
 }
 
 .imgbox:nth-child(2){
@@ -581,6 +586,7 @@ p{
     transform: scale(1.1);
     z-index: 2;
 }
+
 /*----- for smaller devices -----*/
 
 @media(max-width: 700px){
