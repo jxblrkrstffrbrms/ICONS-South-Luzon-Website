@@ -9,7 +9,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden, .hidden1');
+const hiddenElements = document.querySelectorAll('.hidden, .hidden1, .hiddenx');
 hiddenElements.forEach((el) => observer.observe(el));
 
 var navLinks = document.getElementById("navLinks");
