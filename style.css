@@ -90,7 +90,8 @@ nav img{
     text-decoration: none;
     color: #ffffff;
     border: 2px solid #ffffff;
-    padding: 12px 34px;
+    border-radius: 50px;
+    padding: 12px 40px;
     font-size: 15px;
     font-weight: bold;
     background: transparent;
@@ -101,7 +102,7 @@ nav img{
 .hero-btn:hover{
     border: 1px solid #ffc239;
     background: #ffc239;
-    transition: 0.3s;
+    transition: 0.4s;
     color: #ffffff;
 }
 
@@ -221,6 +222,7 @@ p{
     width: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/media8.jpg);
     background-attachment: fixed;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
 }
 
 .consortium-div img{
@@ -242,6 +244,15 @@ p{
     text-align: center;
 }
 
+.cons-col img{
+    transition: 0.5s;
+}
+
+.cons-col img:hover{
+    transform: scale(1.2);
+    z-index: 2;
+}
+
 .cons-text{
     font-size: 20px;
     font-weight: lighter;
@@ -256,7 +267,8 @@ p{
     text-decoration: none;
     color: #ffffff;
     border: 2px solid #ffffff;
-    padding: 12px 34px;
+    border-radius: 50px;
+    padding: 12px 40px;
     font-size: 15px;
     font-weight: bold;
     background: transparent;
@@ -267,7 +279,7 @@ p{
 .cons-btn:hover{
     border: 1px solid #ffc239;
     background: #ffc239;
-    transition: 0.3s;
+    transition: 0.5s;
     color: #ffffff;
 }
 
@@ -413,6 +425,7 @@ p{
     width: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(images/media8.jpg);
     background-attachment: fixed;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
 }
 
 .gallery-div img{
@@ -443,7 +456,6 @@ p{
 
 .news-div{
     width: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(images/media8.jpg);
 }
 
 .news-div img{
@@ -473,7 +485,6 @@ p{
     text-align: center;
 }
 
-
 .news-text{
     font-size: 20px;
     font-weight: lighter;
@@ -498,6 +509,78 @@ p{
     color: #000000;
 }
 
+/*----- ABOUT PAGE -----*/
+
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.orgstruc{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgbox{
+    width: 185px;
+    height: 500px;
+    margin: 20px;
+    margin-top: 15%;
+    border-radius: 50px;
+    background: url(images/members/MAAM\ LOVELY.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: 0.5s;
+}
+
+.imgbox:nth-child(2){
+    margin-top: 5%;
+    background: url(images/members/SIR\ JIGS.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.imgbox:nth-child(3){
+    margin-top: -5%;
+    background: url(images/members/SIR\ ALBERT.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.imgbox:nth-child(4){
+    margin-top: 5%;
+    background: url(images/members/MAAM\ JECA.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.imgbox:nth-child(5){
+    margin-top: 15%;
+    background: url(images/members/SIR\ RED.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.imgbox h3{
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    font-size: 22px;
+    opacity: 0;
+}
+
+.imgbox:hover{
+    width: 330px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
+    transform: scale(1.1);
+    z-index: 2;
+}
 /*----- for smaller devices -----*/
 
 @media(max-width: 700px){
@@ -507,7 +590,6 @@ p{
 
     .nav-links ul li{
         display: block;
-       
     }
 
     .nav-links{
