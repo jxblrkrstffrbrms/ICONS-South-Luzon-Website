@@ -229,8 +229,8 @@ p{
 .consortium-div img{
     position: relative;
     width: 80%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .consortium-text{
@@ -247,6 +247,7 @@ p{
 
 .cons-col img{
     transition: 0.5s;
+    margin: auto;
 }
 
 .cons-col img:hover{
@@ -373,6 +374,10 @@ p{
 
 .logos .logo{
     height: 86px;
+}
+
+#sendbutton{
+    margin: auto;
 }
 
 /*----- footer -----*/
