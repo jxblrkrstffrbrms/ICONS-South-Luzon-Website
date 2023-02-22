@@ -221,7 +221,7 @@ p{
 
 .consortium-div{
     width: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(images/media8.jpg);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(images/media8.jpg);
     background-attachment: fixed;
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
 }
@@ -408,6 +408,26 @@ p{
     padding: 18px 0;
 }
 
+.login{
+    text-decoration: none;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.login:hover{
+    border: 1px solid #ffc239;
+    background: #ffc239;
+    transition: 0.5s;
+    color: #000000;
+}
+
 /*----- ACTIVITIES PAGE -----*/
 
 .actheader{
@@ -433,7 +453,7 @@ p{
 
 .gallery{
     width: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(images/media8.jpg);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(images/media8.jpg);
     background-attachment: fixed;
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
     text-align: center;
@@ -462,21 +482,21 @@ p{
     position: absolute;
     display: flex;
     bottom: 20px;
-    left: 40%;
+    left: 35%;
     padding-bottom: 4%;
 }
 
 .bar{
     width: 50px;
     height: 10px;
-    border: 2px solid #ffc239;
+    border: 2px solid #022E75;
     margin: 6px;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .bar:hover{
-    background: #ffc239;
+    background: #022E75;
 }
 
 input[name="r"]{
@@ -508,6 +528,18 @@ input[name="r"]{
 
 #r2:checked ~ .s1{
     margin-left: -20%;
+}
+
+#r3:checked ~ .s1{
+    margin-left: -40%;
+}
+
+#r4:checked ~ .s1{
+    margin-left: -60%;
+}
+
+#r5:checked ~ .s1{
+    margin-left: -80%;
 }
 
 /*----- NEWS PAGE -----*/
