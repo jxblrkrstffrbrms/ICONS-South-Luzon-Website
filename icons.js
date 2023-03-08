@@ -10,6 +10,7 @@ async function login() {
     }
 
     // we will change the url of this once we get to deploy our API
+    console.log({"username": username, "password": password})
     await fetch('http://127.0.0.1:8080/icons/admins', {
         method: 'POST',
         headers: {
@@ -21,7 +22,8 @@ async function login() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('redirect to admin home page')
+                alert('Successfully logged in as admin');
+                location.replace("./home.html");
             }
 
             /*
