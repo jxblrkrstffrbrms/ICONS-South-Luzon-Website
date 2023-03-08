@@ -48,7 +48,8 @@ async function getActivities() {
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
                             <p class="card-text">${activity.text}</p>
-                            <a href="#" class="btn btn-primary">More details</a>
+                            <button class="btn btn-primary">EDIT</button>
+                            <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
                             </div>
                         </div>`
             
@@ -84,15 +85,29 @@ async function createActivity() {
     })
        .then(response => response.json())
        .then(response => {
-            if ('success' in response) {
-                alert('redirect to admin home page')
-            }
-
-            /*
             if (response.message == 'OK') {
-                sessionStorage.setItem("token", response.token);
+                alert('Successfully added new activity')
+                location.reload();
             }
-            */
        })
 }
+
+
+async function deleteActivity(id) {
+    await fetch(`http://127.0.0.1:8080/icons/activities/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully deleted new activity')
+                getActivities();
+            }
+       })
+}
+
 
