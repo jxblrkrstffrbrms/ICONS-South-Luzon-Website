@@ -111,3 +111,34 @@ async function deleteActivity(id) {
 }
 
 
+
+async function setUserActivities() {
+    fetch("http://127.0.0.1:8080/icons/activities")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        let activity_list = '';
+        acts = document.getElementById('activities').innerHTML;
+        let counter = 1;
+        for (const activity of data) { 
+            console.log(counter)
+            if (counter % 3 == 1) {
+                activity_list += '<div class="articles">';
+            }
+            activity_list += `<div class="act">
+                                <a href="act1.html">
+                                <img src="${activity.image_url}"></a>
+                                <h4 class="act-title">${activity.title}</h4>
+                                <div class="line2"></div>
+                                <p class="act-desc">${activity.text}</p>
+                              </div>`
+            
+            if (counter % 3 == 0) {
+                activity_list += `</div>`
+            }
+            counter++;
+        }
+        document.getElementById('activities').innerHTML = activity_list
+    });
+}
+
