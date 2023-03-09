@@ -41,11 +41,16 @@ async function getActivities() {
     .then((response) => response.json())
     .then((data) => {
         console.log(data)
-        let activity_list = `<div class="row">`;
+        let activity_list = '';
         acts = document.getElementById('activities').innerHTML;
         let counter = 1;
         for (const activity of data) { 
-            activity_list += `<div class="card" style="width: 18rem;">
+
+            if (counter % 3 == 1) {
+                activity_list += `<div class="row mt-4">`
+            }
+            activity_list += `<div class="col-md-4">
+                            <div class="card" style="width: 100%;">
                             <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
@@ -53,11 +58,12 @@ async function getActivities() {
                             <button class="btn btn-primary">EDIT</button>
                             <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
                             </div>
-                        </div>`
-            
+                        </div></div>`
+
             if (counter % 3 == 0) {
-                activity_list += `</div> <div class="row">`
+                activity_list += `</div>`
             }
+            counter++;
         }
         document.getElementById('activities').innerHTML = activity_list
     });
@@ -139,6 +145,33 @@ async function setUserActivities() {
                 activity_list += `</div>`
             }
             counter++;
+        }
+        document.getElementById('activities').innerHTML = activity_list
+    });
+}
+
+async function getGallery() {
+    fetch("http://127.0.0.1:8080/icons/activities")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        let activity_list = `<div class="row">`;
+        acts = document.getElementById('activities').innerHTML;
+        let counter = 1;
+        for (const activity of data) { 
+            activity_list += `<div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
+                            <div class="card-body">
+                            <h5 class="card-title">${activity.title}</h5>
+                            <p class="card-text">${activity.text}</p>
+                            <button class="btn btn-primary">EDIT</button>
+                            <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
+                            </div>
+                        </div>`
+            
+            if (counter % 3 == 0) {
+                activity_list += `</div> <div class="row">`
+            }
         }
         document.getElementById('activities').innerHTML = activity_list
     });
