@@ -25,17 +25,17 @@
                 color: #1382cc !important; 
             }
 
+            .inl {
+                display: inline;
+            }
 
         </style>
     </head>
-    <body onload="getActivities()">
+    <body onload="homeStartup()">
 
         <div class="container-fluid">
-            <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <!-- Container wrapper -->
                     <div class="container-fluid mx-5">
-                    <!-- Navbar brand -->
                     <a class="navbar-brand me-2" href="https://mdbgo.com/">
                         <img
                         src="images/logo.png"
@@ -46,7 +46,6 @@
                         />
                     </a>
                 
-                    <!-- Toggle button -->
                     <button
                         class="navbar-toggler"
                         type="button"
@@ -59,15 +58,12 @@
                         <i class="fas fa-bars"></i>
                     </button>
                 
-                    <!-- Collapsible wrapper -->
                     <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                        <!-- Left links -->
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href=""></a>
                         </li>
                         </ul>
-                        <!-- Left links -->
 
                         <div>
                             <ul class="nav justify-content-center">
@@ -88,14 +84,26 @@
                 
 
                     </div>
-                    <!-- Collapsible wrapper -->
                     </div>
-                    <!-- Container wrapper -->
                 </nav>
-                <!-- Navbar -->
         </div>
 
         <div class="container">
+            <div>
+                <h1 class="inl">Objectives</h1>
+                <button class="ms-3 mb-3 inl btn btn-primary btn-sm">EDIT</button>
+            </div>
+            
+            <!-- The content of this p tag is being set by the function getObjectives() in icons.js -->
+            <p id="objectives_text">
+
+            </p>
+        </div>
+
+        <div class="container mt-5">
+            <h1>Blogs and Activities</h1>
+
+            <!-- The content of this p tag is being set by the function getActivities() in icons.js -->
             <div id="activities">
 
             </div>
