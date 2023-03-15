@@ -29,7 +29,7 @@ async function login() {
             // This is the expected response from the endpoint
             // This is how we know the user credentials is valid and active
             if (response.message == 'OK') {
-                alert('Successfully logged in as admin');
+                alert('Successfully logged in as Admin');
                 location.replace("./home.html");
             }
 
