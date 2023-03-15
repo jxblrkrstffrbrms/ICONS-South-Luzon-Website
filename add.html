@@ -27,18 +27,30 @@
                 color: #022E7D !important; 
             }
 
-            .inl {
-                display: inline;
+            .abf {
+                text-align: center;
+                padding-bottom: 4px;
+                font-size: 54px;
             }
 
             .bg-plain {
                 background-image: url(./images/bg.jpg);
                 background-attachment: fixed;
             }
+            
+            a {
+                text-decoration: none;
+                color:black;
+            }
+            .btn {
+                color: #fff;
+                background: #022E7D;
+                border-radius: 20px;
+            }
 
         </style>
     </head>
-    <body class="bg-plain" onload="homeStartup()">
+    <body class="bg-plain" onload="homeStartup()" style="text-align: left">
 
         <!-- This is the start of the sidebar section -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -59,11 +71,11 @@
         </div>
         <div class="offcanvas-body">
             <ul class="list-group">
-                <li class="list-group-item fs-4 text-center"><a href="#" class="text-dark">Objectives</a></li>
-                <li class="list-group-item fs-4 text-center"><a href="#" class="text-dark">Edit Blogs</a></li>
-                <li class="list-group-item fs-4 text-center"><a href="#" class="text-dark">Add Blogs</a></li>
-                <li class="list-group-item fs-4 text-center"><a href="#" class="text-dark">Add Pictures</a></li>
-                <li class="list-group-item fs-4 text-center"><a href="./index.html" class="text-dark">ICONS Website</a></li>
+                <li class="list-group-item fs-4 text-center"><a href="#">Objectives</a></li>
+                <li class="list-group-item fs-4 text-center"><a href="#">Edit Blogs</a></li>
+                <li class="list-group-item fs-4 text-center"><a href="./add.html">Add Blogs</a></li>
+                <li class="list-group-item fs-4 text-center"><a href="#">Add Pictures</a></li>
+                <li class="list-group-item fs-4 text-center"><a href="./index.html">ICONS Website</a></li>
               </ul>
         </div>
         </div>
@@ -140,9 +152,9 @@
                 </nav>
         </div>
 
-        <div class="container">
+        <div class="mt-5">
             <div>
-                <h1 class="inl"><b>Add Blog</b></h1>
+                <h1 class="abf"><b>Add Blog</b></h1>
             </div>
         </div>
 
@@ -168,7 +180,7 @@
                         <textarea class="form-control" rows="2" id="image_url" placeholder="URL for Blog Image"></textarea>
                     </div>
                 </div>
-                <div class="form-group row mt-4">
+                <div class="form-group row mt-2">
                     <label for="image_url" class="col-sm-4 col-form-label"></label>
                     <div class="col-sm-8">
                         <button class="btn btn-primary w-100 btn-block mt-5" onclick="createActivity()">Submit</button>
