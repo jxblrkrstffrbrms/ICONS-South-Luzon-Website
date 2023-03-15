@@ -4,8 +4,8 @@ async function login() {
 
     //This is the function for submitting the credentials in the login page
     // 
-    username = document.getElementById('username').value;
-    password = document.getElementById('password').value;
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
 
 
     // If both username and password fields are empty
@@ -30,6 +30,8 @@ async function login() {
             // This is how we know the user credentials is valid and active
             if (response.message == 'OK') {
                 alert('Successfully logged in as Admin');
+                sessionStorage.setItem("token", response.token);
+                sessionStorage.setItem("admin_name", response.name);
                 location.replace("./home.html");
             }
 
@@ -214,4 +216,45 @@ async function getGallery() {
 async function homeStartup() {
     getActivities();
     getObjectives();
+
+    adminName = sessionStorage.getItem('admin_name');
+
+
+    document.getElementById('admin_name').innerHTML = adminName;
+    document.getElementById('admin_prefix').innerHTML = adminName['0'];
+}
+
+async function sendEmail() {
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+
+    if (!email || !name || !message) {
+        alert('Please fill up all fields')
+        return 
+    }
+
+    const body = {
+        'email': email,
+        'subject': name,
+        'message': message
+    }
+
+
+
+     await fetch('http://127.0.0.1:8080/icons/contact', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully sent message')
+                location.reload();
+            }
+    })
 }
