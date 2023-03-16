@@ -253,7 +253,7 @@ async function sendEmail() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully sent message')
+                alert('Successfully sent a message. Thank you')
                 location.reload();
             }
     })
