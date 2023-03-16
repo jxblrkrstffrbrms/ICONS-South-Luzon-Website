@@ -20,7 +20,7 @@
             *{
                 margin: 0;
                 padding: 0;
-                font-family: "Poppins" , sans-serif;
+                font-family: 'Chivo', sans-serif;
             } 
 
             ul.nav a:hover { 
@@ -46,7 +46,7 @@
 
         </style>
     </head>
-    <body class="bg-plain" onload="homeStartup()" style="text-align: left">
+    <body class="bg-plain" onload="setObjectives()" style="text-align: left">
 
         <!-- This is the start of the sidebar section -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -156,12 +156,43 @@
 
         <div class="container mt-5">
             <h1>Recent Objective</h1>
-                <h4>The program of ICONS South Luzon establishes a regional startup development plan, develop strategies to promote the startup programs of PCIEERD/DOST, establish a pool of mentors and conduct mentorship programs for startups to increase fundability, craft a skills enhancement program for the startup enablers, and implement collaborative programs/activities for the ecosystem.</h4>
-        </div>
+                <h4 id="objectives_current"></h4>
+            </div>
 
         <div class="container mt-5">
-            <h1>Edit</h1>
+            <button class="btn btn-primary w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
         </div>
+
+          
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Edit objectives</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Objectives body</label>
+                        <textarea type="email" class="form-control" id="edit_objectives" aria-describedby="emailHelp" style="height: 500px"> </textarea>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      </div>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="editObjectives()">Save</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
         <script src="icons.js" async defer></script>
     </body>
 </html>
