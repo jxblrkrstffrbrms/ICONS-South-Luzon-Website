@@ -258,3 +258,36 @@ async function sendEmail() {
             }
     })
 }
+
+
+async function setObjectives() {
+    fetch("http://127.0.0.1:8080/icons/objectives")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.text)
+            document.getElementById('edit_objectives').value = data.text;
+            document.getElementById('objectives_current').innerHTML = data.text;
+            
+    });
+}
+
+async function editObjectives() {
+    const body = {
+        'text': document.getElementById('edit_objectives').value
+    }
+    await fetch('http://127.0.0.1:8080/icons/objectives', {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully edited objectives')
+                location.reload();
+        }
+    })
+}
