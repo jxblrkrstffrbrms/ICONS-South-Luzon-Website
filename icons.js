@@ -66,6 +66,40 @@ async function getActivities() {
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
                             <p class="card-text">${activity.text}</p>
+                            </div>
+                        </div></div>`
+
+            if (counter % 3 == 0) {
+                activity_list += `</div>`
+            }
+            counter++;
+        }
+        document.getElementById('activities').innerHTML = activity_list
+    });
+}
+
+async function editgetActivities() {
+
+
+    // This sets the activities content for the home.html 
+    fetch("http://127.0.0.1:8080/icons/activities")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        let activity_list = '';
+        acts = document.getElementById('activities').innerHTML;
+        let counter = 1;
+        for (const activity of data) { 
+
+            if (counter % 3 == 1) {
+                activity_list += `<div class="row mt-4">`
+            }
+            activity_list += `<div class="col-md-4">
+                            <div class="card" style="width: 100%;">
+                            <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
+                            <div class="card-body">
+                            <h5 class="card-title">${activity.title}</h5>
+                            <p class="card-text">${activity.text}</p>
                             <button class="btn btn-primary">EDIT</button>
                             <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
                             </div>
@@ -290,4 +324,116 @@ async function editObjectives() {
                 location.reload();
         }
     })
+}
+
+
+async function userGetGallery() {
+
+
+    // This sets the gallery content for the activities.html 
+    fetch("http://127.0.0.1:8080/icons/gallery")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        let galleryPreText = '';
+        let galleryText = '';
+        let galleryPostText = '';
+        let counter = 1;
+        acts = document.getElementById('activities').innerHTML;
+        for (const picture of data) { 
+            galleryPreText += `<input type="radio" name="r" id="r${counter}">`
+            const s1 = counter == 1 ? "s1" : "";
+            galleryText += `<div class="slide ${s1}">
+                                <img src="${picture.image_url}">
+                            </div>`
+            galleryPostText += `<label for="r${counter}" class="bar"></label>`
+            counter+=1;
+        }
+
+        document.getElementById('slidesContent').innerHTML = galleryPreText + galleryText + ` <div class="navigation" id="navigation"> ${galleryPostText} </div>`
+        
+    });
+}
+
+async function blogsStartup() {
+    setUserActivities();
+    userGetGallery();
+}
+
+async function adminGalleryStartup() {
+    getPictures();
+}
+
+
+
+async function getPictures() {
+
+
+    // This sets the gallery content for the activities.html 
+    fetch("http://127.0.0.1:8080/icons/gallery")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        let galleryText = '';
+        let counter = 1;
+        for (const picture of data) { 
+            galleryText += `<div class="row my-5">
+                                <h1>
+                                    Picture ${counter}
+                                    <button class="btn btn-danger btn-sm" onclick="deletePicture('${picture._id}')">DELETE</a>
+                                </h1>
+                                <img class="img-fluid" src="${picture.image_url}" alt="">
+                                
+                            </div>`
+            counter+=1;
+        }
+
+        document.getElementById('admin_gallery').innerHTML = galleryText;
+    });
+}
+
+
+async function deletePicture(id) {
+
+
+    // We delete the picture using this endpoint
+    // with the DELETE method 
+
+    await fetch(`http://127.0.0.1:8080/icons/gallery/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully deleted picture')
+                getGallery();
+            }
+        })
+}
+
+async function addPicture() {
+
+    const body = {
+        'image_url': document.getElementById('add_picture').value
+    }
+    await fetch('http://127.0.0.1:8080/icons/gallery', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+        .then(response => response.json())
+        .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully added picture')
+                location.reload();
+        }
+    })
+    
 }
