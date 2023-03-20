@@ -56,7 +56,7 @@
         </style>
     </head>
 
-    <body class="bg-objective">
+    <body class="bg-objective" onload="getObjectives()">
         <div>
             <section class="actheader">
                 <nav>
@@ -115,7 +115,7 @@
                 <div class="line"></div>
 
                 <!-- Objectives section text-->
-                <p class="text-black text-lg lg:text-xl font-normal text-center px-80 pt-5 align-middle">
+                <p class="text-black text-lg lg:text-xl font-normal text-center px-80 pt-5 align-middle" id="objectives_text">
                     The program of ICONS South Luzon establishes a regional startup development plan, develop strategies to promote the startup programs of PCIEERD/DOST, establish a pool of mentors and conduct mentorship programs for startups to increase fundability, craft a skills enhancement program for the startup enablers, and implement collaborative programs/activities for the ecosystem.
                 </p>
             </div>
@@ -381,6 +381,7 @@
             <a href="login.html" class="login">ADMIN LOGIN</a>
         </section>
     <script src="app.js"></script>
+    <script src="icons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </body>
 </html>

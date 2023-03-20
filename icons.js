@@ -437,3 +437,4 @@ async function addPicture() {
     })
     
 }
+
