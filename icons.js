@@ -409,7 +409,7 @@ async function deletePicture(id) {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully deleted picture')
+                alert('Successfully deleted a picture')
                 getGallery();
             }
         })
@@ -431,7 +431,7 @@ async function addPicture() {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully added picture')
+                alert('Successfully added a picture')
                 location.reload();
         }
     })
