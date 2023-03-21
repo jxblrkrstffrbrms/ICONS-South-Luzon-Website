@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <style>
             .bg-ecosystem {
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./css/images/media8.jpg);
@@ -53,6 +54,25 @@
                 transform:translate(9999px);
                 opacity: 0;  
             }
+
+            #mybtn {
+                position:fixed;
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                background-color: #022E75;
+                color: white;
+                cursor: pointer;
+                border-radius: 50px;
+                border: none;
+                outline: none;
+            }
+
+            #mybtn:hover {
+                background-color: #022E75;
+            }
+
         </style>
     </head>
 
@@ -379,6 +399,26 @@
             </div>
             <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce♥</p><br>
             <a href="login.html" class="login">ADMIN LOGIN</a>
+
+            <button onclick="topFunction()" id="mybtn">
+                <i class="material-icons">arrow_upward</i>
+            </button> 
+            <script>
+                let mybutton = document.getElementById("mybtn");
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction(){
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        mybutton.style.display="block";
+                    } else {
+                        mybutton.style.display="none";
+                    }
+                }
+                function topFunction(){
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop=0;
+                }
+            </script>
         </section>
     <script src="app.js"></script>
     <script src="icons.js"></script>
