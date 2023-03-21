@@ -696,6 +696,28 @@ input[name="r"]{
     
 }
 
+/*----- SCROLL UP -----*/
+/* .mybtn {
+    display:none;
+    position:fixed;
+    bottom: 20px;
+    text-align: right;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border:none;
+    background-color: #ffc239;
+    color: white;
+    padding: 15px;
+    cursor:pointer;
+    border-radius: 4px;
+}
+
+.mybtn:hover {
+    background-color: #022E75;
+}
+*/
+
 /*----- for smaller devices -----*/
 
 @media(max-width: 700px){
