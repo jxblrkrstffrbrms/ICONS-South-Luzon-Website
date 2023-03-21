@@ -1,5 +1,6 @@
 
 
+
 async function login() {
 
     //This is the function for submitting the credentials in the login page
@@ -80,7 +81,6 @@ async function getActivities() {
 
 async function editgetActivities() {
 
-
     // This sets the activities content for the home.html 
     fetch("http://127.0.0.1:8080/icons/activities")
     .then((response) => response.json())
@@ -153,7 +153,7 @@ async function createActivity() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully added new activity')
+                alert('Successfully added a new activity')
                 location.reload();
             }
        })
@@ -263,7 +263,7 @@ async function sendEmail() {
     const message = document.getElementById('message').value;
 
     if (!email || !name || !message) {
-        alert('Please fill up all fields')
+        alert('Please fill in all required fields')
         return 
     }
 
@@ -319,7 +319,7 @@ async function editObjectives() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully edited objectives')
+                alert('Updated Succesfully')
                 location.reload();
         }
     })
@@ -408,7 +408,7 @@ async function deletePicture(id) {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully deleted a picture')
+                alert('Picture has been deleted successfully')
                 getGallery();
             }
         })
@@ -430,7 +430,7 @@ async function addPicture() {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully added a picture')
+                alert('Successfully added a new picture')
                 location.reload();
         }
     })

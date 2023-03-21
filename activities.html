@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script defer src="app.js"></script>
 
         <style>
@@ -57,10 +58,28 @@
                 color: white !important;
             }
 
-
             .aboutDropdown div a:hover::after{
                 width: 100%;
             }
+
+            #mybtn {
+                position:fixed;
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                background-color: #022E75;
+                color: white;
+                cursor: pointer;
+                border-radius: 50px;
+                border: none;
+                outline: none;
+            }
+
+            #mybtn:hover {
+                background-color: #022E75;
+            }
+
         </style>
     </head>
 
@@ -193,6 +212,26 @@
                 </div>
                 <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce♥</p><br>
                 <a href="login.html" class="login">ADMIN LOGIN</a>
+
+                <button onclick="topFunction()" id="mybtn">
+                    <i class="material-icons">arrow_upward</i>
+                </button> 
+                <script>
+                    let mybutton = document.getElementById("mybtn");
+                    window.onscroll = function() {scrollFunction()};
+    
+                    function scrollFunction(){
+                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                            mybutton.style.display="block";
+                        } else {
+                            mybutton.style.display="none";
+                        }
+                    }
+                    function topFunction(){
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop=0;
+                    }
+                </script>
             </section>
             <script>
                 let displayAbout = true;
