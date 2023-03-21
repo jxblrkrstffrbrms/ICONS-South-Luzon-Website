@@ -175,8 +175,8 @@ async function deleteActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Blog has been deleted successfully')
-                getActivities();
+                alert('Successfully deleted new activity')
+                editgetActivities();
             }
        })
 }
@@ -195,7 +195,6 @@ async function setUserActivities() {
         acts = document.getElementById('activities').innerHTML;
         let counter = 1;
         for (const activity of data) { 
-            console.log(counter)
             if (counter % 3 == 1) {
                 activity_list += '<div class="articles">';
             }
