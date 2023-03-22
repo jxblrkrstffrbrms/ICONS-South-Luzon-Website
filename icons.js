@@ -175,7 +175,7 @@ async function deleteActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully deleted new activity')
+                alert('Successfully deleted activity')
                 editgetActivities();
             }
        })
@@ -378,7 +378,7 @@ async function getPictures() {
         for (const picture of data) { 
             galleryText += `<div class="row my-5">
                                 <h1>
-                                    Picture ${counter}
+                                    <strong>Picture ${counter}</strong>
                                     <button class="btn btn-danger btn-sm" onclick="deletePicture('${picture._id}')">DELETE</a>
                                 </h1>
                                 <img class="img-fluid" src="${picture.image_url}" alt="">
