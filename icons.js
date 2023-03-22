@@ -437,3 +437,31 @@ async function addPicture() {
     
 }
 
+async function getMessages() {
+
+
+    // This sets the gallery content for the activities.html 
+    fetch("http://127.0.0.1:8080/icons/contact")
+    .then((response) => response.json())
+    .then((data) => {
+        let messageText = '';
+        let counter = 1;
+        for (const message of data) { 
+            messageText += `<div class="card">
+                                <div class="card-header">
+                                ${message.created}
+                                </div>
+                                <div class="card-body">
+                                <h5 class="card-title">${message.subject} - (${message.email})</h5>
+                                <p class="card-text">${message.message}</p>
+                                <a href="#" class="btn btn-danger">Remove</a>
+                                </div>
+                            </div>`
+            counter+=1;
+        }
+
+        document.getElementById('messages').innerHTML = messageText;
+    });
+}
+
+

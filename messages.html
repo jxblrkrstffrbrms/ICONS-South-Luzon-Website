@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Edit Blogs</title>
+        <title>Add Pictures</title>
         <link rel="icon" href="images/logo.png">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <style>
             *{
                 margin: 0;
@@ -27,7 +27,7 @@
                 color: #022E7D !important; 
             }
 
-            .ebf {
+            .egf {
                 text-align: center;
                 padding-bottom: 4px;
                 font-size: 54px;
@@ -43,14 +43,42 @@
                 color:black;
             }
 
-            img {
-                max-height: 400px !important;
+            .btn-success {
+                background-color: #022E7D;
+                border-color: #022E7D;
+                color: white;
+            }
+            .btn-success:hover{
+                background-color: #022E7D;
+                color: white;
             }
 
+            .btn-primary {
+                background-color: #022E7D;
+                border-color: #022E7D;
+            }
+
+            #mybtn {
+                position:fixed;
+                right: 10px;
+                bottom: 10px;
+                width: 50px;
+                height: 50px;
+                background-color: #022E75;
+                color: white;
+                cursor: pointer;
+                border-radius: 50px;
+                border: none;
+                outline: none;
+            }
+
+            #mybtn:hover {
+                background-color: #022E75;
+            }
 
         </style>
     </head>
-    <body class="bg-plain" onload="editgetActivities()" style="text-align: left">
+    <body class="bg-plain" onload="getMessages()" style="text-align: left">
 
         <!-- This is the start of the sidebar section -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -71,7 +99,7 @@
         </div>
         <div class="offcanvas-body">
             <ul class="list-group">
-                <li class="list-group-item fs-4 text-center"><a href="./objectives.html">Objectives</a></li>
+                <li class="list-group-item fs-4 text-center"><a href="./objectives.html">Edit Objectives</a></li>
                 <li class="list-group-item fs-4 text-center"><a href="./blogs.html">Edit Blogs</a></li>
                 <li class="list-group-item fs-4 text-center"><a href="./add.html">Add Blogs</a></li>
                 <li class="list-group-item fs-4 text-center"><a href="./gallery.html">Add Pictures</a></li>
@@ -153,19 +181,49 @@
                 </nav>
         </div>
 
-        <div class="container mt-5">
-            <h1 class="ebf"><b>Edit Blogs</b></h1>
-
-            <!-- The content of this p tag is being set by the function getActivities() in icons.js -->
-            <div id="activities">
-
+        <div class="mt-5">
+            <div>
+                <h1 class="egf"><b>Messages</b></h1>
             </div>
         </div>
 
-
+    
+        <div class="container" id="messages">
+            <div class="card">
+                <div class="card-header">
+                  maryjoyce.llabres@g.batstate-u.edu.ph
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Mary Joyce</h5>
+                  <p class="card-text">Can you really see this?</p>
+                  <a href="#" class="btn btn-danger">Remove</a>
+                </div>
+            </div>
+        </div>
 
        
         </div>
+
+        
+          <button onclick="topFunction()" id="mybtn">
+            <i class="material-icons">arrow_upward</i>
+          </button> 
+        <script>
+            let mybutton = document.getElementById("mybtn");
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction(){
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display="block";
+                } else {
+                    mybutton.style.display="none";
+                }
+            }
+            function topFunction(){
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop=0;
+            }
+        </script>
         <script src="icons.js" async defer></script>
     </body>
 </html>
