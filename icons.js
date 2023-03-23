@@ -409,7 +409,7 @@ async function deletePicture(id) {
         .then(response => {
             if (response.message == 'OK') {
                 alert('Picture has been deleted successfully')
-                getGallery();
+                getPictures();
             }
         })
 }
