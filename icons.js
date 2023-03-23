@@ -463,6 +463,9 @@ async function getMessages() {
                                 <h5 class="card-title">${message.subject} - (${message.email})</h5>
                                 <p class="card-text">${message.message}</p>
                                 <a href="#" class="btn btn-danger">Remove</a>
+                                <a class="btn btn-primary" target="_blank"
+                                href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
+                                Reply</a>
                                 </div>
                             </div>`
             counter+=1;
