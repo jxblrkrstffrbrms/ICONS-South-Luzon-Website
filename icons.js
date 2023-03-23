@@ -134,6 +134,8 @@ async function createActivity() {
     image_url = document.getElementById('image_url').value;
     title = document.getElementById('title').value;
     text = document.getElementById('text').value;
+    page_text = document.getElementById('page_text').value;
+
 
 
     await fetch('http://127.0.0.1:8080/icons/activities', {
@@ -146,7 +148,8 @@ async function createActivity() {
             {
                 "image_url": image_url,
                 "title": title,
-                "text": text
+                "text": text,
+                "page_text": page_text
             }
         )
     })
@@ -203,7 +206,7 @@ async function setUserActivities() {
             // Kindly change this to your preferred design
             // This is the initial design you had
             activity_list += `<div class="act">
-                                <a onclick="getActivityPage('${activity.title}', '${activity.image_url}', '${activity.text}')">
+                                <a onclick="getActivityPage('${activity.title}', '${activity.image_url}', '${activity.page_text}')">
                                 <img src="${activity.image_url}"></a>
                                 <h4 class="act-title">${activity.title}</h4>
                                 <div class="line2"></div>
@@ -468,11 +471,11 @@ async function getMessages() {
 }
 
 
-async function getActivityPage(title, image_url, text) {
+async function getActivityPage(title, image_url, page_text) {
 
     sessionStorage.setItem('page_title', title);
     sessionStorage.setItem('page_image', image_url);
-    sessionStorage.setItem('page_text', text);
+    sessionStorage.setItem('page_text', page_text);
     location.replace("./act1.html");
 }
 
