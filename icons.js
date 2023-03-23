@@ -192,6 +192,7 @@ async function setUserActivities() {
     .then((data) => {
         console.log(data)
         let activity_list = '';
+        let modals = '';
         acts = document.getElementById('activities').innerHTML;
         let counter = 1;
         for (const activity of data) { 
@@ -202,19 +203,21 @@ async function setUserActivities() {
             // Kindly change this to your preferred design
             // This is the initial design you had
             activity_list += `<div class="act">
-                                <a href="act1.html">
+                                <a onclick="getActivityPage('${activity.title}', '${activity.image_url}', '${activity.text}')">
                                 <img src="${activity.image_url}"></a>
                                 <h4 class="act-title">${activity.title}</h4>
                                 <div class="line2"></div>
                                 <p class="act-desc">${activity.text}</p>
                               </div>`
-            
+                      
             if (counter % 3 == 0) {
                 activity_list += `</div>`
             }
             counter++;
         }
+        console.log(modals)
         document.getElementById('activities').innerHTML = activity_list
+        //document.body.innerHTML += modals;
     });
 }
 
@@ -409,7 +412,7 @@ async function deletePicture(id) {
         .then(response => {
             if (response.message == 'OK') {
                 alert('Picture has been deleted successfully')
-                getGallery();
+                getPictures();
             }
         })
 }
@@ -465,3 +468,16 @@ async function getMessages() {
 }
 
 
+async function getActivityPage(title, image_url, text) {
+
+    sessionStorage.setItem('page_title', title);
+    sessionStorage.setItem('page_image', image_url);
+    sessionStorage.setItem('page_text', text);
+    location.replace("./act1.html");
+}
+
+async function loadPageDetails() {
+    document.getElementById('page_title').innerHTML = sessionStorage.getItem('page_title');
+    document.getElementById('page_image').src = sessionStorage.getItem('page_image');
+    document.getElementById('page_text').innerHTML = sessionStorage.getItem('page_text');
+}
