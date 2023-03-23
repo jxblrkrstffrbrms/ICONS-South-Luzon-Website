@@ -178,7 +178,7 @@ async function deleteActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully deleted activity')
+                alert('Deleted Successfully')
                 editgetActivities();
             }
        })
