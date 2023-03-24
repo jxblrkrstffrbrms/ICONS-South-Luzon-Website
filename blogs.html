@@ -184,6 +184,51 @@
 
             </div>
         </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Recent Objective</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="">
+                    <label for="exampleInputEmail1" class="form-label"><b>Blog title</b></label>
+                    <input type="text" class="form-control" id="blog_title_edit" aria-describedby="emailHelp"> </textarea>
+                </div>
+
+                <div class="">
+                    <label for="exampleInputEmail1" class="form-label"><b>Blog description</b></label>
+                    <input type="text" class="form-control" id="blog_desc_edit" aria-describedby="emailHelp"> </textarea>
+                </div>
+
+                <div class="">
+                    <label for="exampleInputEmail1" class="form-label"><b>Image URL</b></label>
+                    <input type="text" class="form-control" id="blog_url_edit" aria-describedby="emailHelp"> </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Page content</b></label>
+                    <textarea type="text" class="form-control" id="blog_page_content_edit" aria-describedby="emailHelp" style="height: 300px"> </textarea>
+                </div>
+            </div>
+        
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="editActivitiesSaveButton">Save</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        
+            </div>
+        </div>
+        </div>
         
         <button onclick="topFunction()" id="mybtn">
             <i class="material-icons">arrow_upward</i>

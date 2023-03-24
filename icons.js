@@ -79,13 +79,14 @@ async function getActivities() {
     });
 }
 
+editActivities = []
 async function editgetActivities() {
 
     // This sets the activities content for the home.html 
     fetch("http://127.0.0.1:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
+        editActivities = data;
         let activity_list = '';
         acts = document.getElementById('activities').innerHTML;
         let counter = 1;
@@ -100,7 +101,7 @@ async function editgetActivities() {
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
                             <p class="card-text">${activity.text}</p>
-                            <button class="btn btn-primary">EDIT</button>
+                            <button class="btn btn-primary" onclick="setBlogsModal('${activity._id}')"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
                             <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
                             </div>
                         </div></div>`
@@ -462,7 +463,7 @@ async function getMessages() {
                                 <div class="card-body">
                                 <h5 class="card-title">${message.subject} - (${message.email})</h5>
                                 <p class="card-text">${message.message}</p>
-                                <a href="#" class="btn btn-danger">Remove</a>
+                                <a class="btn btn-danger" onclick="deleteMessage('${message._id}')">Remove</a>
                                 <a class="btn btn-primary" target="_blank"
                                 href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                 Reply</a>
@@ -490,4 +491,65 @@ async function loadPageDetails() {
     document.getElementById('page_title').innerHTML = sessionStorage.getItem('page_title');
     document.getElementById('page_image').src = sessionStorage.getItem('page_image');
     document.getElementById('page_text').innerHTML = sessionStorage.getItem('page_text');
+}
+
+async function deleteMessage(id) {
+
+
+    // We delete the picture using this endpoint
+    // with the DELETE method 
+
+    await fetch(`http://127.0.0.1:8080/icons/contact/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(response => {
+            if (response.message == 'OK') {
+                alert('Message has been deleted successfully')
+                getMessages();
+            }
+        })
+}
+
+function setBlogsModal(id) {
+    var filtered = editActivities.filter(function (el) {
+        return el._id == id;
+      })[0];
+    
+      document.getElementById('blog_title_edit').value = filtered.title;
+      document.getElementById('blog_desc_edit').value = filtered.text;
+      document.getElementById('blog_url_edit').value = filtered.image_url;
+      document.getElementById('blog_page_content_edit').value = filtered.page_text;
+
+      document.getElementById('editActivitiesSaveButton').setAttribute('onclick',`saveNewActivity('${id}')`)
+}
+
+async function saveNewActivity(id) {
+    const body = {
+        'title': document.getElementById('blog_title_edit').value,
+        'text': document.getElementById('blog_desc_edit').value,
+        'image_url': document.getElementById('blog_url_edit').value,
+        'page_content': document.getElementById('blog_page_content_edit').value
+    }
+
+    await fetch(`http://127.0.0.1:8080/icons/activities/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Succesfully updated activity')
+                location.reload();
+        }
+    })
+    location.replace("./blogs.html")
 }
