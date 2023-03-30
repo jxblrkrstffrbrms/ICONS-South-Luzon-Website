@@ -295,7 +295,7 @@ async function sendEmail() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully sent a message. Thank you')
+                alert('Successfully sent a message. Thank you!')
                 location.reload();
             }
     })
@@ -423,6 +423,8 @@ async function deletePicture(id) {
         })
 }
 
+    // Adding picture using this endpoint 
+    
 async function addPicture() {
 
     const body = {
@@ -515,6 +517,8 @@ async function deleteMessage(id) {
         })
 }
 
+    // Edit Activities
+
 function setBlogsModal(id) {
     var filtered = editActivities.filter(function (el) {
         return el._id == id;
@@ -547,7 +551,7 @@ async function saveNewActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Succesfully updated activity')
+                alert('The activity was updated successfully')
                 location.reload();
         }
     })
