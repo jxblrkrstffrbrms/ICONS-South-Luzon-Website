@@ -101,8 +101,9 @@ async function editgetActivities() {
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
                             <p class="card-text">${activity.text}</p>
-                            <button class="btn btn-primary" onclick="setBlogsModal('${activity._id}')"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
-                            <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
+                            <div></div>
+                            <button class="edit_button" onclick="setBlogsModal('${activity._id}')"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
+                            <button class="delete_button" onclick="deleteActivity('${activity._id}')">DELETE</a>
                             </div>
                         </div></div>`
 
@@ -456,7 +457,7 @@ async function getMessages() {
         let messageText = '';
         let counter = 1;
         for (const message of data) { 
-            messageText += `<div class="card">
+            messageText += `<div class="card mt-4">
                                 <div class="card-header">
                                 ${message.created}
                                 </div>
