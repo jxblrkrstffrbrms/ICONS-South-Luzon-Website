@@ -99,6 +99,13 @@
             width: 100%;
         }
 
+        .send_button {
+            border: solid 1px black;
+            border-radius: 3px;
+            padding: 4px !important;
+            margin-top: 1rem;
+        }
+
 
     </style>
 </head>
@@ -233,7 +240,7 @@
                 </label>
                 <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
                 
-                <button onclick="sendEmail()" class="border-gray-600 hover:bg-gray-400 text-gray-800 font-bold py-2 px-24 inline-flex items-center">                    
+                <button onclick="sendEmail()" class="border-gray-600 hover:bg-gray-400 text-gray-800 font-bold py-2 inline-flex items-center send_button">                    
                     <i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>
                     <span> Send</span>
                 </button>
