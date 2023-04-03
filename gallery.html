@@ -91,6 +91,27 @@
                 background-color: #022E75;
             }
 
+            .edit_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #0d6efd;
+                padding: 5px 10px;
+            }
+
+            .edit_button:hover {
+                background-color: #0b5ed7;
+            }
+
+            .delete_button {
+                max-height: 30px;
+                max-width: 65px;
+            }
+
+            .delete_button:hover {
+                background-color: #bb2d3b;
+            }
+
         </style>
     </head>
     <body class="bg-plain" onload="getPictures()" style="text-align: left">
@@ -202,7 +223,7 @@
         </div>
 
         <div class="container">
-            <button class="btn btn-primary btn-lg w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">Add a Picture</button>
+            <button class="edit_button btn-lg w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">Add a Picture</button>
         </div>
         
 

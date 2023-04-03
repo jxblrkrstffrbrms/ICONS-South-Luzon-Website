@@ -76,6 +76,18 @@
                 font-size: 45px;
             }
 
+            .edit_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #0d6efd;
+                padding: 5px 10px;
+            }
+
+            .edit_button:hover {
+                background-color: #0b5ed7;
+            }
+
         </style>
     </head>
     <body class="bg-plain" onload="setObjectives()" style="text-align: left">
@@ -188,7 +200,7 @@
             <h3 id="objectives_current" style="text-align: justify;"></h3>
 
         <div class="container mt-5">
-            <button class="btn btn-primary w-100 btn-block mt-5 rounded-pill"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
+            <button class="edit_button w-100 btn-block mt-5 rounded-pill"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
         </div>
     </div>
     </div>
