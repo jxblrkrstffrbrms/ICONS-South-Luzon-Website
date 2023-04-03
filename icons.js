@@ -34,6 +34,9 @@ async function login() {
                 sessionStorage.setItem("token", response.token);
                 sessionStorage.setItem("admin_name", response.name);
                 location.replace("./home.html");
+            } else {
+                alert("Invalid username or password");
+                return
             }
 
             /*
