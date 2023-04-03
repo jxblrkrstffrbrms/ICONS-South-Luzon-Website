@@ -42,19 +42,28 @@
                 text-decoration: none;
                 color:black;
             }
-            .btn-success {
-                background-color: #022E7D;
-                border-color: #022E7D;
-            }
-
-            .btn-success:hover {
-                background-color: #022E7D;
+            .delete_button {
+                border: none;
+                border-radius: 3px;
                 color: white;
+                background-color: #dc3545;
+                padding: 5px 10px;
             }
 
-            .btn-danger {
-                background-color: #ffa300;
-                border-color: #ffa300;
+            .delete_button:hover {
+                background-color: #bb2d3b;
+            }
+
+            .save_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #022E75;
+                padding: 5px 10px;
+            }
+
+            .save_button:hover {
+                background-color: #022E75;
             }
 
             .btn-primary {
@@ -208,8 +217,8 @@
           
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="editObjectives()">Save</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="save_button" data-bs-dismiss="modal" onclick="editObjectives()">Save</button>
+                  <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
                 </div>
           
               </div>
