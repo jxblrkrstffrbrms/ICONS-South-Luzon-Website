@@ -44,21 +44,31 @@
                 color:black;
             }
 
-            .btn-success {
-                background-color: #022E7D;
-                border-color: #022E7D;
+            .save_button {
+                border: none;
+                border-radius: 3px;
                 color: white;
-            }
-            .btn-success:hover{
-                background-color: #022E7D;
-                color: white;
-            }
-            .btn-danger{
-                background-color: #ffa300;
-                border-color: #ffa300;
+                background-color: #022E75;
+                padding: 5px 10px;
             }
 
-            .btn-primary {
+            .save_button:hover {
+                background-color: #022E75;
+            }
+
+            .delete_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #dc3545;
+                padding: 5px 10px;
+            }
+
+            .delete_button:hover {
+                background-color: #bb2d3b;
+            }
+
+            .btn_primary {
                 background-color: #022E7D;
                 border-color: #022E7D;
             }
@@ -79,6 +89,27 @@
 
             #mybtn:hover {
                 background-color: #022E75;
+            }
+
+            .edit_button {
+                border: none;
+                border-radius: 5px;
+                color: white;
+                background-color: #022E75;
+                padding: 5px 10px;
+            }
+
+            .edit_button:hover {
+                background-color: #022E75;
+            }
+
+            .delete_button {
+                max-height: 30px;
+                max-width: 65px;
+            }
+
+            .delete_button:hover {
+                background-color: #bb2d3b;
             }
 
         </style>
@@ -192,7 +223,7 @@
         </div>
 
         <div class="container">
-            <button class="btn btn-primary btn-lg w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">Add a Picture</button>
+            <button class="edit_button btn-lg w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">Add Picture</button>
         </div>
         
 
@@ -224,8 +255,8 @@
           
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="addPicture()">Save</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="save_button" data-bs-dismiss="modal" onclick="addPicture()">Save</button>
+                  <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
                 </div>
           
               </div>

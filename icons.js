@@ -34,6 +34,9 @@ async function login() {
                 sessionStorage.setItem("token", response.token);
                 sessionStorage.setItem("admin_name", response.name);
                 location.replace("./home.html");
+            } else {
+                alert("Invalid username or password");
+                return
             }
 
             /*
@@ -66,7 +69,7 @@ async function getActivities() {
                             <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
-                            <p class="card-text">${activity.text}</p>
+                            <p class="card-text" style="text-align: justify;">${activity.text}</p>
                             </div>
                         </div></div>`
 
@@ -100,9 +103,10 @@ async function editgetActivities() {
                             <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
-                            <p class="card-text">${activity.text}</p>
-                            <button class="btn btn-primary" onclick="setBlogsModal('${activity._id}')"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
-                            <button class="btn btn-danger" onclick="deleteActivity('${activity._id}')">DELETE</a>
+                            <p class="card-text" style="text-align: justify;">${activity.text}</p>
+                            <div></div>
+                            <button class="edit_button" onclick="setBlogsModal('${activity._id}')"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
+                            <button class="delete_button" onclick="deleteActivity('${activity._id}')">DELETE</a>
                             </div>
                         </div></div>`
 
@@ -295,7 +299,7 @@ async function sendEmail() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully sent a message. Thank you!')
+                alert('Successfully sent a message. Thank you')
                 location.reload();
             }
     })
@@ -388,7 +392,7 @@ async function getPictures() {
             galleryText += `<div class="row my-5">
                                 <h1>
                                     <strong>Picture ${counter}</strong>
-                                    <button class="btn btn-danger btn-sm" onclick="deletePicture('${picture._id}')">DELETE</a>
+                                    <button class="btn btn-danger btn-sm delete_button" onclick="deletePicture('${picture._id}')">DELETE</a>
                                 </h1>
                                 <img class="img-fluid" src="${picture.image_url}" alt="">
                                 
@@ -423,8 +427,6 @@ async function deletePicture(id) {
         })
 }
 
-    // Adding picture using this endpoint 
-    
 async function addPicture() {
 
     const body = {
@@ -458,15 +460,15 @@ async function getMessages() {
         let messageText = '';
         let counter = 1;
         for (const message of data) { 
-            messageText += `<div class="card">
+            messageText += `<div class="card mt-4">
                                 <div class="card-header">
                                 ${message.created}
                                 </div>
                                 <div class="card-body">
                                 <h5 class="card-title">${message.subject} - (${message.email})</h5>
                                 <p class="card-text">${message.message}</p>
-                                <a class="btn btn-danger" onclick="deleteMessage('${message._id}')">Remove</a>
-                                <a class="btn btn-primary" target="_blank"
+                                <a class="delete_button" onclick="deleteMessage('${message._id}')">Remove</a>
+                                <a class="edit_button" target="_blank"
                                 href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                 Reply</a>
                                 </div>
@@ -517,8 +519,6 @@ async function deleteMessage(id) {
         })
 }
 
-    // Edit Activities
-
 function setBlogsModal(id) {
     var filtered = editActivities.filter(function (el) {
         return el._id == id;
@@ -551,7 +551,7 @@ async function saveNewActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('The activity was updated successfully')
+                alert('Succesfully updated activity')
                 location.reload();
         }
     })
