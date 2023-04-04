@@ -42,29 +42,19 @@
                 text-decoration: none;
                 color:black;
             }
+            .btn-success {
+                background-color: #022E7D;
+                border-color: #022E7D;
+            }
 
-            .delete_button {
-                border: none;
-                border-radius: 3px;
+            .btn-success:hover {
+                background-color: #022E7D;
                 color: white;
-                background-color: #dc3545;
-                padding: 5px 10px;
             }
 
-            .delete_button:hover {
-                background-color: #bb2d3b;
-            }
-
-            .save_button {
-                border: none;
-                border-radius: 3px;
-                color: white;
-                background-color: #022E75;
-                padding: 5px 10px;
-            }
-
-            .save_button:hover {
-                background-color: #022E75;
+            .btn-danger {
+                background-color: #ffa300;
+                border-color: #ffa300;
             }
 
             .btn-primary {
@@ -75,18 +65,6 @@
             .rcbtn {
                 padding-bottom: 36px;
                 font-size: 45px;
-            }
-
-            .edit_button {
-                border: none;
-                border-radius: 5px;
-                color: white;
-                background-color: #022E75;
-                padding: 5px 10px;
-            }
-
-            .edit_button:hover {
-                background-color: #022E75;
             }
 
         </style>
@@ -198,10 +176,10 @@
                 <h1 class="eof"><b>Our Objectives</b></h1>
             </div>
         
-            <h3 id="objectives_current" style="text-align: justify;"></h3>
+            <h3 id="objectives_current"></h3>
 
         <div class="container mt-5">
-            <button class="edit_button w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">Edit</button>
+            <button class="btn btn-primary w-100 btn-block mt-5 rounded-pill"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
         </div>
     </div>
     </div>
@@ -230,8 +208,8 @@
           
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="save_button" data-bs-dismiss="modal" onclick="editObjectives()">Save</button>
-                  <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="editObjectives()">Save</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
           
               </div>

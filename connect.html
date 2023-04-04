@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect | ICONS</title>
-    <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="about.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="app.js"></script>
-    <script defer src="nav.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        .banner {
-            min-height: 40vh;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px
-        }
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ICONS South Luzon</title>
+        <link rel="icon" href="images/logo.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./css/tailwind.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script defer src="app.js"></script>
+        <style>
+            .bg-ecosystem {
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./css/images/media8.jpg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
 
             .bg-map {
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./css/images/steerhub.jpg);
@@ -108,75 +106,11 @@
             </section>
             </div>
         
-        .bg-map {
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/steerhub.jpg);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-
-        }
-
-        #nav h1::after, #nav a::after{
-            content: '';
-            width: 0%;
-            height: 4px;
-            background: #ffc239;
-            display: block;
-            margin: auto;
-            transition: 0.5s;
-        }
-
-        #nav h1:hover::after, #nav a:hover::after{
-            width: 100%;
-        }
-
-        .send_button {
-            border: solid 1px black;
-            border-radius: 3px;
-            padding: 4px !important;
-            margin-top: 1rem;
-        }
-
-
-        .login {
-            text-decoration: none;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            padding-left: 15px;
-            padding-right: 15px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 800;
-            margin-top: 2rem !important;
-        }
-
-        #mybtn {
-                position:fixed;
-                right: 10px;
-                bottom: 10px;
-                width: 50px;
-                height: 50px;
-                background-color: #022E75;
-                color: white;
-                cursor: pointer;
-                border-radius: 50px;
-                border: none;
-                outline: none;
-            }
-
-            #mybtn:hover {
-                background-color: #022E75;
-            }
-
-    </style>
-</head>
-<body class="bg-objective">
-    <div class="flex relative flex-col banner h-1/2 bg-banner1 bg-cover bg-center text-white">
-        <div class="flex justify-between md:pl-6 md:pt-4 md:pr-6 lg:pr-20 lg:pt-8 lg:pl-20">
-            <div class="ml-10"> 
-                <img class="h-20" src="images/logo.png" alt="">
+        <!-- Send message section -->
+        <div class="flex flex-col text-center pt-10">
+            <!-- Send message sectiont title -->
+            <div class="text-3xl font-bold">
+                SEND US YOUR MESSAGE
             </div>
             <div class="line"></div>
             <div class="flex text-left my-4">
@@ -269,121 +203,13 @@
                     <img src="logos/animolabs.png" class="logo">
                     <img src="logos/pitbi.png" class="logo">
                 </div>
-
-                <label class="mt-6 block text-sm text-left font-bold mb-2" for="username">
-                    Email*
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
-        
-                <label class="mt-6 block text-sm text-left font-bold mb-2" for="username">
-                    Message   
-                </label>
-                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-                
-                <button onclick="sendEmail()" class="border-gray-600 hover:bg-gray-400 text-gray-800 font-bold py-2 inline-flex items-center send_button">                    
-                    <i class="fa fa-envelope-o fa-fw" aria-hidden="true" style="padding-bottom: 3px"></i>
-                    <span> Send</span>
-                </button>
-            </div>
-            <div class="hidden md:flex md:w-1/3">
-
-            </div>
-        </div>
-
-    </div>
-
-    <div class="flex bg-map mt-10 md:mt-16" style="height: 500px !important;">
-        <div class="hidden md:flex md:w-1/2 h-full">
-            <iframe class="w-full h-full p-10" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3874.9113894327443!2d121.074361!3d13.784215!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd0fe5e8d3f1e3%3A0x5d4c0eab733fc15!2sBatangas%20State%20University%20%E2%80%93%20Gov.%20Pablo%20Borbon%20Campus%20II!5e0!3m2!1sen!2sph!4v1676598181922!5m2!1sen!2sph" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="w-full md:w-1/2 text-center py-10 my-auto">
-            <div class="text-5xl text-white font-bold">
-                VISIT US
-            </div>
-            <div class="text-white text-center text-xl mt-5 font-semibold">
-                2nd flr. STEER Hub, Batangas State University<br>
-                Pablo Borbon Main II, Alangilan, Batangas City
-            </div>
-        </div>
-    </div>
-
-
-    <section class="hiddenx">
-        <div class="text-3xl md:text-4xl font-bold text-center my-10">
-            OFFICIAL PARTNERS
-        </div>
-    
-        <div class="flex flex-col lg:hidden justify-center mb-10 space-y-6">
-            <div class="flex justify-center space-x-6">
-                <img src="logos/dost.png" class="h-20 w-20">
-                <img src="logos/bsu.png" class="h-20 w-20">
-                <img src="logos/cti.png" class="h-20 w-20">
-            </div>
-            <div class="flex justify-center space-x-6">
-                <img src="logos/triangle.png" class="h-20 w-20">
-                <img src="logos/sibol.png" class="h-20 w-20">
-                <img src="logos/ulo.png" class="h-20 w-20">
-            </div>
-            <div class="flex justify-center space-x-6">
-                <img src="logos/nexus.png" class="h-20 w-20">
-                <img src="logos/animolabs.png" class="h-20 w-20">
-                <img src="logos/pitbi.png" class="h-20 w-20">
-            </div>
-        </div>
-
-        <div class="hidden lg:flex justify-center mb-10 space-x-0 px-10 flex-wrap">
-            <div class="flex justify-center space-x-6">
-                <img src="logos/dost.png" class="w-32 h-86">
-                <img src="logos/bsu.png" class="w-32 h-86">
-                <img src="logos/cti.png" class="w-32 h-86">
-            </div>
-            <div class="flex justify-center space-x-6 pl-4">
-                <img src="logos/triangle.png" class="w-32 h-86">
-                <img src="logos/sibol.png" class="w-32 h-86">
-                <img src="logos/ulo.png" class="w-32 h-86">
-            </div>
-            <div class="flex justify-center space-x-6">
-                <img src="logos/nexus.png" class="w-32 h-86">
-                <img src="logos/animolabs.png" class="w-32 h-86">
-                <img src="logos/pitbi.png" class="w-32 h-86">
-            </div>
-        </div>
-    </section>
     
             </section>
         </section>
 
 
-        <div class="icons">
-            <a href="https://www.facebook.com/iconsSL"><i class="fa fa-facebook"></i></a>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-linkedin"></i>
-        </div>
-        <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce ♥</p><br>
-
-        <a href="login.html" class="login">ADMIN LOGIN</a>
-
-        <button onclick="topFunction()" id="mybtn">
-            <i class="material-icons">arrow_upward</i>
-        </button> 
-        <script>
-            let mybutton = document.getElementById("mybtn");
-            window.onscroll = function() {scrollFunction()};
-
-            function scrollFunction(){
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    mybutton.style.display="block";
-                } else {
-                    mybutton.style.display="none";
-                }
-            }
-            function topFunction(){
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop=0;
-            }
-        </script>
-    </section>
+        <section class="footer">
+            <h4>CONNECT WITH US</h4>
 
             <div class="icons">
                 <a href="https://www.facebook.com/iconsSL"><i class="fa fa-facebook"></i></a>
