@@ -71,6 +71,42 @@
                height: 100%;
             }
 
+            .edit_button {
+                border: none;
+                border-radius: 5px;
+                color: white;
+                background-color: #022E75;
+                padding: 5px 10px;
+            }
+
+            .edit_button:hover {
+                background-color: #022E75;
+            }
+
+            .delete_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #dc3545;
+                padding: 5px 10px;
+            }
+
+            .delete_button:hover {
+                background-color: #bb2d3b;
+            }
+
+            .save_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #022E75;
+                padding: 5px 10px;
+            }
+
+            .save_button:hover {
+                background-color: #022E75;
+            }
+
 
         </style>
     </head>
@@ -106,7 +142,7 @@
         <!-- This is the end of the sidebar section -->
 
         <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-light" style="box-shadow: none;">
                     <div class="container-fluid mx-5">
                     <a class="navbar-brand me-2" href="https://mdbgo.com/">
                         <img
@@ -126,7 +162,7 @@
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <i class="fas fa-bars"></i>
+                        <i class="bi bi-list"></i>
                     </button>
                 
                     <div class="collapse navbar-collapse" id="navbarButtonsExample">
@@ -192,7 +228,7 @@
         
             <!-- Modal Header -->
             <div class="modal-header">
-                <h3 class="modal-title">Edit Recent Objective</h3>
+                <h3 class="modal-title">Edit Recent Activity</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
         
@@ -222,8 +258,8 @@
         
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="editActivitiesSaveButton">Save</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="save_button" data-bs-dismiss="modal" id="editActivitiesSaveButton">Save</button>
+                <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
             </div>
         
             </div>
@@ -254,5 +290,6 @@
        
         </div>
         <script src="icons.js" async defer></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
     </body>
 </html>
