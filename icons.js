@@ -1,6 +1,3 @@
-
-
-
 async function login() {
 
     //This is the function for submitting the credentials in the login page
@@ -35,7 +32,7 @@ async function login() {
                 sessionStorage.setItem("admin_name", response.name);
                 location.replace("./home.html");
             } else {
-                alert("Invalid username or password");
+                alert("Invalid Username or Password. Try Again");
                 return
             }
 
@@ -161,7 +158,7 @@ async function createActivity() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully added a new activity')
+                alert('Successfully Added a New Activity')
                 location.reload();
             }
        })
@@ -299,7 +296,7 @@ async function sendEmail() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully sent a message. Thank you')
+                alert('Successfully Sent a Message. Thank you')
                 location.reload();
             }
     })
