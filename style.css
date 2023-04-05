@@ -313,6 +313,7 @@ p{
 }
 
 .act{
+    min-width: 300px;
     max-height: 630px;
     max-width: 350px;
     margin: 25px;
