@@ -468,7 +468,7 @@ async function getMessages() {
                                 <h5 class="card-title">${message.subject} - (${message.email})</h5>
                                 <p class="card-text">${message.message}</p>
                                 <a class="delete_button" onclick="deleteMessage('${message._id}')">Remove</a>
-                                <a class="edit_button" target="_blank"
+                                <a class="reply_button" target="_blank"
                                 href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                 Reply</a>
                                 </div>
