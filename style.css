@@ -313,7 +313,7 @@ p{
 }
 
 .act{
-    min-width: 200px;
+    min-width: 300px;
     max-height: 630px;
     max-width: 350px;
     margin: 25px;
@@ -323,7 +323,8 @@ p{
 }
 
 .act img{
-    max-height: 400px;
+    min-height: 350px;
+    max-height: 350px;
     width: 100%;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
