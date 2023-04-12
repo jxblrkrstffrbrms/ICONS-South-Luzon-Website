@@ -35,7 +35,7 @@ async function login() {
                 sessionStorage.setItem("admin_name", response.name);
                 location.replace("./home.html");
             } else {
-                alert("Invalid username or password");
+                alert("Invalid Username or Password");
                 return
             }
 
@@ -161,7 +161,7 @@ async function createActivity() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully added a new activity')
+                alert('Successfully Added a New Activity')
                 location.reload();
             }
        })
@@ -443,7 +443,7 @@ async function addPicture() {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully added a new picture')
+                alert('Successfully Added a New Picture')
                 location.reload();
         }
     })
@@ -551,7 +551,7 @@ async function saveNewActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Succesfully updated activity')
+                alert('Succesfully Updated Activity')
                 location.reload();
         }
     })
