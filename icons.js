@@ -55,7 +55,6 @@ async function getActivities() {
     fetch("http://54.169.200.186:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
         let activity_list = '';
         acts = document.getElementById('activities').innerHTML;
         let counter = 1;
@@ -199,7 +198,6 @@ async function setUserActivities() {
     fetch("http://54.169.200.186:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
         let activity_list = '';
         let modals = '';
         acts = document.getElementById('activities').innerHTML;
@@ -225,7 +223,6 @@ async function setUserActivities() {
             }
             counter++;
         }
-        console.log(modals)
         document.getElementById('activities').innerHTML = activity_list
         //document.body.innerHTML += modals;
     });
@@ -235,7 +232,6 @@ async function getGallery() {
     fetch("http://54.169.200.186:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
         let activity_list = `<div class="row">`;
         acts = document.getElementById('activities').innerHTML;
         let counter = 1;
@@ -310,7 +306,6 @@ async function setObjectives() {
     fetch("http://54.169.200.186:8080/icons/objectives")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data.text)
             document.getElementById('edit_objectives').value = data.text;
             document.getElementById('objectives_current').innerHTML = data.text;
             
@@ -346,7 +341,6 @@ async function userGetGallery() {
     fetch("http://54.169.200.186:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
         let galleryPreText = '';
         let galleryText = '';
         let galleryPostText = '';
@@ -385,7 +379,6 @@ async function getPictures() {
     fetch("http://54.169.200.186:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
         let galleryText = '';
         let counter = 1;
         for (const picture of data) { 
@@ -460,9 +453,9 @@ async function getMessages() {
         let messageText = '';
         let counter = 1;
         for (const message of data) { 
-            messageText += `<div class="card mt-4">
+            messageText += `<div class="card mt-4" style="font-weight: ${message.read ? 'normal': '700'};">
                                 <div class="card-header">
-                                ${message.created}
+                                ${message.read ? '': '<i class="bi bi-circle-fill" style="color: red"></i>'} ${message.created}
                                 </div>
                                 <div class="card-body">
                                 <h5 class="card-title">${message.subject} - (${message.email})</h5>
