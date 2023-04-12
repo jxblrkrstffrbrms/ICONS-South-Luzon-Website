@@ -314,8 +314,8 @@ p{
 }
 
 .act{
-    max-height: 630px;
-    max-width: 350px;
+    height: 630px;
+    width: 350px;
     margin: 25px;
     border-radius: 10%; 
     box-shadow: 0 0 20px 0px rgba(0,0,0,0.4);
@@ -323,7 +323,7 @@ p{
 }
 
 .act img{
-    max-height: 400px;
+    max-height: 280px;
     width: 100%;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
