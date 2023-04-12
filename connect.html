@@ -140,6 +140,10 @@
                 background-color: #022E75;
             }
 
+            .textcolor {
+                color: #ffa300 !important;
+            }
+
     </style>
 </head>
 <body class="bg-objective">
@@ -247,7 +251,7 @@
     </div>
 
     <div class="flex flex-col text-center pt-10">
-        <div class="text-3xl font-bold">
+        <div class="text-3xl font-bold textcolor">
             SEND US YOUR MESSAGE
         </div>
         <div class="line"></div>
@@ -287,8 +291,14 @@
 
     <div class="flex bg-map mt-10 md:mt-16" style="height: 500px !important;">
         <div class="hidden md:flex md:w-1/2 h-full">
-            <iframe class="w-full h-full p-10" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3874.9113894327443!2d121.074361!3d13.784215!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd0fe5e8d3f1e3%3A0x5d4c0eab733fc15!2sBatangas%20State%20University%20%E2%80%93%20Gov.%20Pablo%20Borbon%20Campus%20II!5e0!3m2!1sen!2sph!4v1676598181922!5m2!1sen!2sph" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+
+        <img class="width=600 height=600" src="images/steerhub.jpg"/>
+
+    <!--- map-->
+    <!---iframe class="w-full h-full p-10" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3874.9113894327443!2d121.074361!3d13.784215!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd0fe5e8d3f1e3%3A0x5d4c0eab733fc15!2sBatangas%20State%20University%20%E2%80%93%20Gov.%20Pablo%20Borbon%20Campus%20II!5e0!3m2!1sen!2sph!4v1676598181922!5m2!1sen!2sph" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">iframe-->
+        
+
+    </div>
         <div class="w-full md:w-1/2 text-center py-10 my-auto">
             <div class="text-5xl text-white font-bold">
                 VISIT US
@@ -301,9 +311,10 @@
         </div>
     </div>
 
+    <!--- Partners -->
 
     <section class="hiddenx">
-        <div class="text-3xl md:text-4xl font-bold text-center my-10">
+        <div class="text-2xl md:text-4xl font-bold text-center my-10 textcolor">
             OFFICIAL PARTNERS
             <div class="w-1/12 line"></div>
         </div>
@@ -345,6 +356,7 @@
         </div>
     </section>
     
+    <!--- FOOTER -->
 
     <section class="footer">
         <h4>CONNECT WITH US</h4>
@@ -358,6 +370,8 @@
         <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce ♥</p><br>
 
         <a href="login.html" class="login">ADMIN LOGIN</a>
+
+            <!--- Upward Button -->
 
         <button onclick="topFunction()" id="mybtn">
             <i class="material-icons">arrow_upward</i>
