@@ -17,7 +17,7 @@ async function login() {
     }
 
     // we will change the url of this once we get to deploy our API
-    await fetch('http://54.169.200.186:8080/icons/admins', {
+    await fetch('http://18.138.58.216:8080/icons/admins', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -52,7 +52,7 @@ async function getActivities() {
 
 
     // This sets the activities content for the home.html 
-    fetch("http://54.169.200.186:8080/icons/activities")
+    fetch("http://18.138.58.216:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
         let activity_list = '';
@@ -85,7 +85,7 @@ editActivities = []
 async function editgetActivities() {
 
     // This sets the activities content for the home.html 
-    fetch("http://54.169.200.186:8080/icons/activities")
+    fetch("http://18.138.58.216:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
         editActivities = data;
@@ -123,7 +123,7 @@ async function getObjectives() {
 
     // The endpoint /icons/objective returns the objectives text in the text attribute
     // that is why we access it using the data.text in line 80
-    fetch("http://54.169.200.186:8080/icons/objectives")
+    fetch("http://18.138.58.216:8080/icons/objectives")
     .then((response) => response.json())
     .then((data) => {
         document.getElementById('objectives_text').innerHTML = data.text
@@ -142,7 +142,7 @@ async function createActivity() {
 
 
 
-    await fetch('http://54.169.200.186:8080/icons/activities', {
+    await fetch('http://18.138.58.216:8080/icons/activities', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -172,7 +172,7 @@ async function deleteActivity(id) {
     // We delete the activity using this endpoint
     // with the DELETE method 
 
-    await fetch(`http://54.169.200.186:8080/icons/activities/${id}`, {
+    await fetch(`http://18.138.58.216:8080/icons/activities/${id}`, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
@@ -195,7 +195,7 @@ async function setUserActivities() {
 
     // This is the function that sets the activities section content in activities.html
 
-    fetch("http://54.169.200.186:8080/icons/activities")
+    fetch("http://18.138.58.216:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
         let activity_list = '';
@@ -229,7 +229,7 @@ async function setUserActivities() {
 }
 
 async function getGallery() {
-    fetch("http://54.169.200.186:8080/icons/activities")
+    fetch("http://18.138.58.216:8080/icons/activities")
     .then((response) => response.json())
     .then((data) => {
         let activity_list = `<div class="row">`;
@@ -284,7 +284,7 @@ async function sendEmail() {
 
 
 
-     await fetch('http://54.169.200.186:8080/icons/contact', {
+     await fetch('http://18.138.58.216:8080/icons/contact', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -303,7 +303,7 @@ async function sendEmail() {
 
 
 async function setObjectives() {
-    fetch("http://54.169.200.186:8080/icons/objectives")
+    fetch("http://18.138.58.216:8080/icons/objectives")
         .then((response) => response.json())
         .then((data) => {
             document.getElementById('edit_objectives').value = data.text;
@@ -316,7 +316,7 @@ async function editObjectives() {
     const body = {
         'text': document.getElementById('edit_objectives').value
     }
-    await fetch('http://54.169.200.186:8080/icons/objectives', {
+    await fetch('http://18.138.58.216:8080/icons/objectives', {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -338,7 +338,7 @@ async function userGetGallery() {
 
 
     // This sets the gallery content for the activities.html 
-    fetch("http://54.169.200.186:8080/icons/gallery")
+    fetch("http://18.138.58.216:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
         let galleryPreText = '';
@@ -376,18 +376,18 @@ async function getPictures() {
 
 
     // This sets the gallery content for the activities.html 
-    fetch("http://54.169.200.186:8080/icons/gallery")
+    fetch("http://18.138.58.216:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
         let galleryText = '';
         let counter = 1;
         for (const picture of data) { 
-            galleryText += `<div class="row my-5">
+            galleryText += `<div class="row my-5 text-center">
                                 <h1>
                                     <strong>Picture ${counter}</strong>
                                     <button class="btn btn-danger btn-sm delete_button" onclick="deletePicture('${picture._id}')">DELETE</a>
                                 </h1>
-                                <img class="img-fluid" src="${picture.image_url}" alt="">
+                                <img class="mx-auto img-fluid" style="height: 300px; width:600px;" src="${picture.image_url}" alt="">
                                 
                             </div>`
             counter+=1;
@@ -404,7 +404,7 @@ async function deletePicture(id) {
     // We delete the picture using this endpoint
     // with the DELETE method 
 
-    await fetch(`http://54.169.200.186:8080/icons/gallery/${id}`, {
+    await fetch(`http://18.138.58.216:8080/icons/gallery/${id}`, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
@@ -425,7 +425,7 @@ async function addPicture() {
     const body = {
         'image_url': document.getElementById('add_picture').value
     }
-    await fetch('http://54.169.200.186:8080/icons/gallery', {
+    await fetch('http://18.138.58.216:8080/icons/gallery', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -447,7 +447,7 @@ async function getMessages() {
 
 
     // This sets the gallery content for the activities.html 
-    fetch("http://54.169.200.186:8080/icons/contact")
+    fetch("http://18.138.58.216:8080/icons/contact")
     .then((response) => response.json())
     .then((data) => {
         let messageText = '';
@@ -465,6 +465,7 @@ async function getMessages() {
                                 <a class="reply_button" target="_blank"
                                 href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                 Reply</a>
+                                <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
                                 </div>
                             </div>`
             counter+=1;
@@ -491,13 +492,39 @@ async function loadPageDetails() {
     document.getElementById('page_text').innerHTML = sessionStorage.getItem('page_text');
 }
 
-async function deleteMessage(id) {
 
+async function updateMessage(id, bool) {
 
     // We delete the picture using this endpoint
     // with the DELETE method 
 
-    await fetch(`http://54.169.200.186:8080/icons/contact/${id}`, {
+    const body = {
+        'read': bool
+    }
+
+    await fetch(`http://18.138.58.216:8080/icons/contact/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+        .then(response => response.json())
+        .then(response => {
+            if (response.message == 'OK') {
+                alert('Message has been marked as read')
+                getMessages();
+            }
+        })
+}
+
+async function deleteMessage(id) {
+
+    // We delete the picture using this endpoint
+    // with the DELETE method 
+
+    await fetch(`http://18.138.58.216:8080/icons/contact/${id}`, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
@@ -534,7 +561,7 @@ async function saveNewActivity(id) {
         'page_content': document.getElementById('blog_page_content_edit').value
     }
 
-    await fetch(`http://54.169.200.186:8080/icons/activities/${id}`, {
+    await fetch(`http://18.138.58.216:8080/icons/activities/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
