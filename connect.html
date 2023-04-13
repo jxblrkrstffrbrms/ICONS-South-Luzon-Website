@@ -14,17 +14,16 @@
     <script defer src="app.js"></script>
     <script defer src="nav.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+
         .banner {
             min-height: 40vh;
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px
         }
 
-        .bg-objective {
-                background-image: url(./images/bg.jpg);
-                background-attachment: fixed;
-        }
+
 
         .line {
             border: 3px solid #022E7D;
@@ -79,7 +78,7 @@
 
         
         .bg-map {
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/steerhub.jpg);
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/steerhub1.jpg);
                 background-position: center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
@@ -134,19 +133,39 @@
                 border-radius: 50px;
                 border: none;
                 outline: none;
-            }
+        }
 
-            #mybtn:hover {
+        #mybtn:hover {
                 background-color: #022E75;
-            }
+        }
 
-            .textcolor {
+        .textcolor {
                 color: #ffa300 !important;
-            }
+        }
+
+        #background-video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+        }
 
     </style>
 </head>
+
 <body class="bg-objective">
+
+    <!-- Background Video -->
+
+    <video id ="background-video"autoplay loop muted>
+        <source src="images/bg.mp4" type="video/mp4"/>
+    </video>
+
     <div class="flex relative flex-col banner h-1/2 bg-banner1 bg-cover bg-center text-white">
         <div class="flex justify-between md:pl-6 md:pt-4 md:pr-6 lg:pr-20 lg:pt-8 lg:pl-20">
             <div class="ml-10"> 
@@ -261,18 +280,18 @@
             </div>
             <div class="w-full mx-14 md:mx-0 md:w-1/3">
                 <div class="mb-4 mt-6">
-                    <label class="block text-sm text-left font-bold mb-2" for="username">
+                    <label class="block text-lg text-left font-bold mb-2" for="username">
                       Name*
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Name">
                 </div>
 
-                <label class="mt-6 block text-sm text-left font-bold mb-2" for="username">
+                <label class="mt-6 block text-lg text-left font-bold mb-2" for="username">
                     Email*
                 </label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Email">
         
-                <label class="mt-6 block text-sm text-left font-bold mb-2" for="username">
+                <label class="mt-6 block text-lg text-left font-bold mb-2" for="username">
                     Message   
                 </label>
                 <textarea id="message" rows="4" class="block p-2.5 w-full text-sm rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
@@ -292,20 +311,22 @@
     <div class="flex bg-map mt-10 md:mt-16" style="height: 500px !important;">
         <div class="hidden md:flex md:w-1/2 h-full">
 
-        <img class="w-full" src="images/steerhub2.jpg"/>
+        <img class="w-full" src="images/steerhub1.jpg"/>
 
     <!--- map-->
     <!---iframe class="w-full h-full p-10" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3874.9113894327443!2d121.074361!3d13.784215!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd0fe5e8d3f1e3%3A0x5d4c0eab733fc15!2sBatangas%20State%20University%20%E2%80%93%20Gov.%20Pablo%20Borbon%20Campus%20II!5e0!3m2!1sen!2sph!4v1676598181922!5m2!1sen!2sph" width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">iframe-->
         
 
         </div>
+        
         <div class="w-full md:w-1/2 text-center py-10 my-auto">
             <div class="text-5xl text-white font-bold">
                 VISIT US
             </div>
             <div class="text-white text-center text-xl mt-5 font-semibold">
-                2nd flr. STEER Hub, Batangas State University<br>
+                2nd flr. STEER Hub, Batangas State University - Alangilan<br>
                 <a href="https://maps.app.goo.gl/utxa9nEoVdVBPhiF6">
+                <i class="fa fa-map-marker" style="color: #ffffff; font-size: 24px;"></i>
                 Pablo Borbon Main II, Alangilan, Batangas City </a><br>
                 icons.sl@g.batstate-u.edu.ph
             </div>
