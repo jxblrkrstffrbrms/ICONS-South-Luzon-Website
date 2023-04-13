@@ -18,19 +18,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <style>
+
         body {
             overflow-x: hidden; /* Hide horizontal scrollbar */
         }
+
         .banner {
             min-height: 40vh;
             border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px
         }
 
-        .bg-objective {
-                background-image: url(./images/bg.jpg);
-                background-attachment: fixed;
-        }
+
 
         .line {
             border: 3px solid #022E7D;
@@ -40,7 +39,6 @@
             margin-bottom: 1%;
         }
 
-
         .line2  {
             border: 3px solid #ffc239;
             width: 6%;
@@ -48,7 +46,6 @@
             margin-top: 1%;
             margin-bottom: 1%;
         }
-
 
         .bg-ecosystem {
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/media8.jpg);
@@ -98,22 +95,22 @@
         }
 
         #mybtn {
-                position:fixed;
-                right: 10px;
-                bottom: 10px;
-                width: 50px;
-                height: 50px;
-                background-color: #022E75;
-                color: white;
-                cursor: pointer;
-                border-radius: 50px;
-                border: none;
-                outline: none;
-            }
+            position:fixed;
+            right: 10px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #022E75;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+        }
 
-            #mybtn:hover {
-                background-color: #022E75;
-            }
+        #mybtn:hover {
+            background-color: #022E75;
+        }
 
             .bg-map {
                 background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/steerhub.jpg);
@@ -123,7 +120,7 @@
 
         }
 
-            #nav h1::after, #nav a::after{
+        #nav h1::after, #nav a::after{
             content: '';
             width: 0%;
             height: 4px;
@@ -133,24 +130,47 @@
             transition: 0.5s;
         }
 
-            #nav h1:hover::after, #nav a:hover::after{
+        #nav h1:hover::after, #nav a:hover::after{
             width: 100%;
         }
         
-            .h-86 {
+        .h-86 {
             height: 86px;
         }
 
-            .rounded-3xl {
+        .rounded-3xl {
             border-radius: 30px !important;
         }
 
         .textcolor {
             color:#ffa300 !important;
         }
+
+        #background-video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+        }
+
     </style>
 </head>
+
 <body class="bg-objective" onload="getObjectives()">
+
+    <!-- Background Video of the Page -->
+    
+    <video id ="background-video"autoplay loop muted>
+        <source src="images/bg.mp4" type="video/mp4"/>
+    </video>
+
+    <!-- Header -->
+
     <div class="flex relative flex-col banner h-1/2 bg-banner1 bg-cover bg-center text-white">
         <div class="flex justify-between md:pl-6 md:pt-4 md:pr-6 lg:pr-20 lg:pt-8 lg:pl-20">
             <div class="ml-10"> 
@@ -172,6 +192,8 @@
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
                             </path>
                         </svg>
+                        
+                        <!-- Dropdown Menu -->
 
                         <div id="aboutDropdown" class="hidden absolute top-8 left-0 z-10 w-60 bg-black rounded-lg">
                             <div class="flex flex-col space-y-3 pb-2 px-9">
