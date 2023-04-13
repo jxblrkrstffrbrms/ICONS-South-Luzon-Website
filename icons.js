@@ -452,7 +452,8 @@ async function getMessages() {
     .then((data) => {
         let messageText = '';
         let counter = 1;
-        for (const message of data) { 
+        let messages = data.reverse()
+        for (const message of messages) { 
             messageText += `<div class="card mt-4" style="font-weight: ${message.read ? 'normal': '700'};">
                                 <div class="card-header">
                                 ${message.read ? '': '<i class="bi bi-circle-fill" style="color: red"></i>'} ${message.created}
