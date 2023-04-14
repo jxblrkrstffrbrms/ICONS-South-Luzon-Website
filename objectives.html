@@ -16,6 +16,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        
         <style>
             *{
                 margin: 0;
@@ -90,7 +91,9 @@
             }
 
         </style>
+        
     </head>
+
     <body class="bg-plain" onload="setObjectives()" style="text-align: left">
 
         <!-- This is the start of the sidebar section -->
@@ -110,6 +113,9 @@
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        
+        <!-- Sidebar Section  -->
+
         <div class="offcanvas-body">
             <ul class="list-group">
                 <li class="list-group-item fs-4 text-center"><a href="./objectives.html">Objectives</a></li>
@@ -120,6 +126,7 @@
               </ul>
         </div>
         </div>
+
         <!-- This is the end of the sidebar section -->
 
         <div class="container-fluid">
@@ -200,6 +207,8 @@
         
             <h3 id="objectives_current" style="text-align: justify;"></h3>
 
+        <!-- Edit Button  -->
+
         <div class="container mt-5">
             <button class="edit_button w-100 btn-block mt-5"  data-bs-toggle="modal" data-bs-target="#myModal">Edit</button>
         </div>
@@ -219,7 +228,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
           
-                <!-- Modal body -->
+                <!-- Modal Body -->
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label"><b>Objectives</b></label>
@@ -228,7 +237,7 @@
                       </div>
                 </div>
           
-                <!-- Modal footer -->
+                <!-- Modal Footer -->
                 <div class="modal-footer">
                     <button type="button" class="save_button" data-bs-dismiss="modal" onclick="editObjectives()">Save</button>
                   <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
