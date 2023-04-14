@@ -446,7 +446,7 @@ async function addPicture() {
 async function getMessages() {
 
 
-    // This sets the gallery content for the activities.html 
+    // This gets the messages
     fetch("http://18.138.58.216:8080/icons/contact")
     .then((response) => response.json())
     .then((data) => {
@@ -495,7 +495,7 @@ async function loadPageDetails() {
 
 async function updateMessage(id, bool) {
 
-    // We delete the picture using this endpoint
+    // We update the messages using this endpoint
     // with the DELETE method 
 
     const body = {
