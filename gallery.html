@@ -113,6 +113,21 @@
                 background-color: #bb2d3b;
             }
 
+            .item {
+            width: 100%
+            }
+
+            .con {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .con > div {
+                flex: 50%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+                /*demo*/
+                margin-bottom: 10px;
+            }
+
         </style>
 
     </head>
@@ -231,7 +246,8 @@
         
 
         <div class="container" id="admin_gallery">
-
+            <div class="con" id="con">
+              </div>
         </div>
 
        

@@ -382,7 +382,7 @@ async function getPictures() {
         let galleryText = '';
         let counter = 1;
         for (const picture of data) { 
-            galleryText += `<div class="row my-5 text-center">
+            galleryText += `<div class="item text-center mt-5">
                                 <h1>
                                     <strong>Picture ${counter}</strong>
                                     <button class="btn btn-danger btn-sm delete_button" onclick="deletePicture('${picture._id}')">DELETE</a>
@@ -393,7 +393,7 @@ async function getPictures() {
             counter+=1;
         }
 
-        document.getElementById('admin_gallery').innerHTML = galleryText;
+        document.getElementById('con').innerHTML = galleryText;
     });
 }
 
@@ -443,8 +443,9 @@ async function addPicture() {
     
 }
 
-async function getMessages() {
 
+let global_messages = []
+async function getMessages() {
 
     // This gets the messages
     fetch("http://18.138.58.216:8080/icons/contact")
@@ -453,6 +454,7 @@ async function getMessages() {
         let messageText = '';
         let counter = 1;
         let messages = data.reverse()
+        global_messages = messages;
         for (const message of messages) { 
             messageText += `<div class="card mt-4" style="font-weight: ${message.read ? 'normal': '700'};">
                                 <div class="card-header">
@@ -466,15 +468,59 @@ async function getMessages() {
                                 href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                 Reply</a>
                                 <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
+                                <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View full</a>
                                 </div>
                             </div>`
             counter+=1;
         }
 
-        document.getElementById('messages').innerHTML = messageText;
+        document.getElementById('messages').innerHTML = '<a class="delete_button" style="margin: 0 auto;" onclick="getUnreadMessages()">Show unread</a>' + messageText;
     });
 }
 
+
+async function getUnreadMessages() {
+
+    // This sets the gallery content for the activities.html 
+    fetch("http://18.138.58.216:8080/icons/contact")
+    .then((response) => response.json())
+    .then((data) => {
+        let messageText = '';
+        let counter = 1;
+        let messages = data.reverse()
+        messages = messages.filter(message => message.read == false);
+        global_messages = messages;
+        for (const message of messages) { 
+            messageText += `<div class="card mt-4" style="font-weight: ${message.read ? 'normal': '700'};">
+                                <div class="card-header">
+                                ${message.read ? '': '<i class="bi bi-circle-fill" style="color: red"></i>'} ${message.created}
+                                </div>
+                                <div class="card-body">
+                                <h5 class="card-title">${message.subject} - (${message.email})</h5>
+                                <p class="card-text">${message.message}</p>
+                                <a class="delete_button" onclick="deleteMessage('${message._id}')">Remove</a>
+                                <a class="reply_button" target="_blank"
+                                href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
+                                Reply</a>
+                                <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
+                                <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View full</a>
+                                </div>
+                            </div>`
+            counter+=1;
+        }
+
+        document.getElementById('messages').innerHTML = '            <a class="delete_button" style="margin: 0 auto;" onclick="getMessages()">Show all</a>' +  messageText;
+    });
+}
+
+function viewMessage(message_id) {
+    let result = global_messages.filter(message => message._id == message_id)[0];
+
+
+    document.getElementById('message_author').innerHTML = result.email;
+    document.getElementById('message_subject').innerHTML = result.subject;
+    document.getElementById('message_content').innerHTML = result.message;
+}
 
 async function getActivityPage(id) {
     var filtered = activities_array.filter(function (el) {
@@ -482,7 +528,7 @@ async function getActivityPage(id) {
       })[0];
     sessionStorage.setItem('page_title', filtered.title);
     sessionStorage.setItem('page_image', filtered.image_url);
-    sessionStorage.setItem('page_text', filtered.page_text);
+    sessionStorage.setItem('page_text', filtered.page_content);
     location.replace("./act1.html");
 }
 
@@ -513,7 +559,7 @@ async function updateMessage(id, bool) {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Message has been marked as read')
+                alert(`Message has been marked as ${bool ? 'read' : 'unread'}`)
                 getMessages();
             }
         })
@@ -560,6 +606,10 @@ async function saveNewActivity(id) {
         'image_url': document.getElementById('blog_url_edit').value,
         'page_content': document.getElementById('blog_page_content_edit').value
     }
+
+    console.log(body)
+
+    console.log()
 
     await fetch(`http://18.138.58.216:8080/icons/activities/${id}`, {
         method: 'PATCH',

@@ -130,6 +130,20 @@
                 background-color: #106405;
             }
 
+            .view_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #979797;
+                padding: 5px 10px;
+            }
+
+
+
+            .view_button:hover {
+                background-color: #474747;
+            }
+
         </style>
 
     </head>
@@ -239,18 +253,57 @@
         <div class="mt-5">
             <div>
                 <h1 class="egf"><b>Messages</b></h1>
+
             </div>
         </div>
-
+        
     
         <div class="container" id="messages">
+
+
         </div>
 
        
         </div>
 
-        <!-- Arrow Upward Button; Back to Top  -->
 
+        <!-- The Modal -->
+        <div class="modal" id="messageModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="modal-title">View message</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+        
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Author:</b></label>
+                   <p id="message_author"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Subject:</b></label>
+                   <p id="message_subject"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><b>Message:</b></label>
+                   <p id="message_content" style="text-align: justify;"></p>
+                </div>
+            </div>
+        
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
+            </div>
+        
+            </div>
+        </div>
+        </div>
+
+        
           <button onclick="topFunction()" id="mybtn">
             <i class="material-icons">arrow_upward</i>
           </button> 
