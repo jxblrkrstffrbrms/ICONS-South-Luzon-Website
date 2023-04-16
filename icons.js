@@ -1,6 +1,4 @@
 
-
-
 async function login() {
 
     //This is the function for submitting the credentials in the login page
@@ -448,34 +446,39 @@ let global_messages = []
 async function getMessages() {
 
     // This gets the messages
-    fetch("http://18.138.58.216:8080/icons/contact")
+    await fetch("http://18.138.58.216:8080/icons/contact")
     .then((response) => response.json())
     .then((data) => {
         let messageText = '';
         let counter = 1;
         let messages = data.reverse()
         global_messages = messages;
-        for (const message of messages) { 
-            messageText += `<div class="card mt-4" style="font-weight: ${message.read ? 'normal': '700'};">
-                                <div class="card-header">
-                                ${message.read ? '': '<i class="bi bi-circle-fill" style="color: red"></i>'} ${message.created}
-                                </div>
-                                <div class="card-body">
-                                <h5 class="card-title">${message.subject} - (${message.email})</h5>
-                                <p class="card-text">${message.message}</p>
-                                <a class="delete_button" onclick="deleteMessage('${message._id}')">Remove</a>
-                                <a class="reply_button" target="_blank"
-                                href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
-                                Reply</a>
-                                <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
-                                <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View full</a>
-                                </div>
-                            </div>`
-            counter+=1;
-        }
-
-        document.getElementById('messages').innerHTML = '<a class="delete_button" style="margin: 0 auto;" onclick="getUnreadMessages()">Show unread</a>' + messageText;
     });
+}
+
+show_unread_only = true
+async function toggleUnread() {
+    show_unread_only = !show_unread_only;
+    toggle_button = document.getElementById('toggle_button');
+    if (show_unread_only) {
+        await fetch("http://18.138.58.216:8080/icons/contact")
+        .then((response) => response.json())
+        .then((data) => {
+            let messages = data.reverse()
+            messages = messages.filter(message => message.read == false);
+            global_messages = messages;
+        });
+        toggle_button.innerHTML = 'SHOW READ';
+    } else {
+        await fetch("http://18.138.58.216:8080/icons/contact")
+        .then((response) => response.json())
+        .then((data) => {
+            let messages = data.reverse()
+            global_messages = messages;
+        });
+        toggle_button.innerHTML = 'SHOW UNREAD';
+    }
+    changePage(current_page);
 }
 
 
@@ -509,7 +512,7 @@ async function getUnreadMessages() {
             counter+=1;
         }
 
-        document.getElementById('messages').innerHTML = '            <a class="delete_button" style="margin: 0 auto;" onclick="getMessages()">Show all</a>' +  messageText;
+        document.getElementById('messages').innerHTML = '<a class="delete_button" style="margin: 0 auto;" onclick="getMessages()">Show all</a>' +  messageText;
     });
 }
 
@@ -607,10 +610,6 @@ async function saveNewActivity(id) {
         'page_content': document.getElementById('blog_page_content_edit').value
     }
 
-    console.log(body)
-
-    console.log()
-
     await fetch(`http://18.138.58.216:8080/icons/activities/${id}`, {
         method: 'PATCH',
         headers: {
@@ -627,4 +626,80 @@ async function saveNewActivity(id) {
         }
     })
     location.replace("./blogs.html")
+}
+
+
+var current_page = 1;
+var records_per_page = 10;
+
+function prevPage()
+{
+    if (current_page > 1) {
+        current_page--;
+        changePage(current_page);
+    }
+}
+
+function nextPage()
+{
+    if (current_page < numPages()) {
+        current_page++;
+        changePage(current_page);
+    }
+}
+    
+async function changePage(page)
+{
+    var btn_next = document.getElementById("btn_next");
+    var btn_prev = document.getElementById("btn_prev");
+    var listing_table = document.getElementById("messages");
+    var page_span = document.getElementById("page");
+    var page_total = document.getElementById("page_total");
+ 
+    // Validate page
+    if (page < 1) page = 1;
+    if (page > numPages()) page = numPages();
+
+    listing_table.innerHTML = "";
+
+    for (var i = (page-1) * records_per_page; i < (page * records_per_page); i++) {
+        const message = global_messages[i];
+        if (!message) {
+            break;
+        }
+        listing_table.innerHTML += `<div class="card mt-4" style="font-weight: ${message.read ? 'normal': '700'};">
+                                        <div class="card-header">
+                                        ${message.read ? '': '<i class="bi bi-circle-fill" style="color: red"></i>'} ${message.created}
+                                        </div>
+                                        <div class="card-body">
+                                        <h5 class="card-title">${message.subject} - (${message.email})</h5>
+                                        <p class="card-text">${message.message}</p>
+                                        <a class="delete_button" onclick="deleteMessage('${message._id}')">Remove</a>
+                                        <a class="reply_button" target="_blank"
+                                        href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
+                                        Reply</a>
+                                        <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
+                                        <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View full</a>
+                                        </div>
+                                    </div>`;
+    }
+    page_span.innerHTML = page;
+    page_total.innerHTML = numPages();
+
+    if (page == 1) {
+        btn_prev.style.visibility = "hidden";
+    } else {
+        btn_prev.style.visibility = "visible";
+    }
+
+    if (page == numPages()) {
+        btn_next.style.visibility = "hidden";
+    } else {
+        btn_next.style.visibility = "visible";
+    }
+}
+
+function numPages()
+{
+    return Math.ceil(global_messages.length / records_per_page);
 }
