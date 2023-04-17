@@ -563,7 +563,8 @@ async function updateMessage(id, bool) {
         .then(response => {
             if (response.message == 'OK') {
                 alert(`Message has been marked as ${bool ? 'read' : 'unread'}`)
-                getMessages();
+                show_unread_only = !show_unread_only
+                toggleUnread();
             }
         })
 }
@@ -584,7 +585,8 @@ async function deleteMessage(id) {
         .then(response => {
             if (response.message == 'OK') {
                 alert('Message has been deleted successfully')
-                getMessages();
+                show_unread_only = !show_unread_only
+                toggleUnread();
             }
         })
 }
@@ -593,11 +595,14 @@ function setBlogsModal(id) {
     var filtered = editActivities.filter(function (el) {
         return el._id == id;
       })[0];
+
+      console.log(filtered)
+      console.log(filtered.page_text)
     
       document.getElementById('blog_title_edit').value = filtered.title;
       document.getElementById('blog_desc_edit').value = filtered.text;
       document.getElementById('blog_url_edit').value = filtered.image_url;
-      document.getElementById('blog_page_content_edit').value = filtered.page_text;
+      document.getElementById('blog_page_content_edit').value = filtered.page_content;
 
       document.getElementById('editActivitiesSaveButton').setAttribute('onclick',`saveNewActivity('${id}')`)
 }
