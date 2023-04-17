@@ -456,11 +456,15 @@ async function getMessages() {
     });
 }
 
-show_unread_only = true
+show_unread_only = 0
 async function toggleUnread() {
-    show_unread_only = !show_unread_only;
+    show_unread_only += 1;
+    if (show_unread_only == 3) {
+        show_unread_only = 0;
+    }
+
     toggle_button = document.getElementById('toggle_button');
-    if (show_unread_only) {
+    if (show_unread_only == 2) {
         await fetch("http://18.138.58.216:8080/icons/contact")
         .then((response) => response.json())
         .then((data) => {
@@ -469,7 +473,7 @@ async function toggleUnread() {
             global_messages = messages;
         });
         toggle_button.innerHTML = 'SHOW READ';
-    } else {
+    } else if (show_unread_only == 1) {
         await fetch("http://18.138.58.216:8080/icons/contact")
         .then((response) => response.json())
         .then((data) => {
@@ -477,6 +481,18 @@ async function toggleUnread() {
             global_messages = messages;
         });
         toggle_button.innerHTML = 'SHOW UNREAD';
+    } else {
+        await fetch("http://18.138.58.216:8080/icons/contact")
+        .then((response) => response.json())
+        .then((data) => {
+            let messages = data.reverse()
+            messages = messages.filter(message => message.read == true);
+            global_messages = messages;
+        });
+        toggle_button.innerHTML = 'SHOW ALL';
+    }
+    if (show_unread_only == 3) {
+        show_unread_only = 0;
     }
     changePage(current_page);
 }
