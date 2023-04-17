@@ -373,7 +373,7 @@ async function adminGalleryStartup() {
 async function getPictures() {
 
 
-    // This sets the gallery content for the activities.html 
+    // This gets the gallery content for the activities.html 
     fetch("http://18.138.58.216:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
@@ -489,7 +489,7 @@ async function toggleUnread() {
             messages = messages.filter(message => message.read == true);
             global_messages = messages;
         });
-        toggle_button.innerHTML = 'SHOW ALL';
+        toggle_button.innerHTML = 'SHOW ALL MESSAGES';
     }
     if (show_unread_only == 3) {
         show_unread_only = 0;
@@ -500,7 +500,7 @@ async function toggleUnread() {
 
 async function getUnreadMessages() {
 
-    // This sets the gallery content for the activities.html 
+    // This gets the Unread message content for the messages.html 
     fetch("http://18.138.58.216:8080/icons/contact")
     .then((response) => response.json())
     .then((data) => {
@@ -521,14 +521,14 @@ async function getUnreadMessages() {
                                 <a class="reply_button" target="_blank"
                                 href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                 Reply</a>
-                                <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
-                                <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View full</a>
+                                <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as Unread</a>' : 'true)">Mark as Read</a>'}
+                                <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View Full</a>
                                 </div>
                             </div>`
             counter+=1;
         }
 
-        document.getElementById('messages').innerHTML = '<a class="delete_button" style="margin: 0 auto;" onclick="getMessages()">Show all</a>' +  messageText;
+        document.getElementById('messages').innerHTML = '<a class="delete_button" style="margin: 0 auto;" onclick="getMessages()">Show All</a>' +  messageText;
     });
 }
 
@@ -561,7 +561,7 @@ async function loadPageDetails() {
 async function updateMessage(id, bool) {
 
     // We update the messages using this endpoint
-    // with the DELETE method 
+
 
     const body = {
         'read': bool
@@ -578,7 +578,7 @@ async function updateMessage(id, bool) {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert(`Message has been marked as ${bool ? 'read' : 'unread'}`)
+                alert(`Message has been marked as ${bool ? 'Read' : 'Unread'}`)
                 show_unread_only = !show_unread_only
                 toggleUnread();
             }
@@ -587,7 +587,7 @@ async function updateMessage(id, bool) {
 
 async function deleteMessage(id) {
 
-    // We delete the picture using this endpoint
+    // We delete the message using this endpoint
     // with the DELETE method 
 
     await fetch(`http://18.138.58.216:8080/icons/contact/${id}`, {
@@ -699,8 +699,8 @@ async function changePage(page)
                                         <a class="reply_button" target="_blank"
                                         href='https://mail.google.com/mail/?view=cm&fs=1&to=${message.email}&su=${message.subject}&body=RE: ${message.message}'>
                                         Reply</a>
-                                        <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as unread</a>' : 'true)">Mark as read</a>'}
-                                        <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View full</a>
+                                        <a class="read_button" onclick="updateMessage('${message._id}', ${message.read ? 'false)">Mark as Unread</a>' : 'true)">Mark as Read</a>'}
+                                        <a class="view_button" onclick="viewMessage('${message._id}')" data-bs-toggle="modal" data-bs-target="#messageModal"> View Full Message</a>
                                         </div>
                                     </div>`;
     }
