@@ -472,7 +472,7 @@ async function toggleUnread() {
             messages = messages.filter(message => message.read == false);
             global_messages = messages;
         });
-        toggle_button.innerHTML = 'SHOW READ';
+        toggle_button.innerHTML = 'SHOW READ MESSAGES';
     } else if (show_unread_only == 1) {
         await fetch("http://18.138.58.216:8080/icons/contact")
         .then((response) => response.json())
@@ -480,7 +480,7 @@ async function toggleUnread() {
             let messages = data.reverse()
             global_messages = messages;
         });
-        toggle_button.innerHTML = 'SHOW UNREAD';
+        toggle_button.innerHTML = 'SHOW UNREAD MESSAGES';
     } else {
         await fetch("http://18.138.58.216:8080/icons/contact")
         .then((response) => response.json())
