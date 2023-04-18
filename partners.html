@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ICONS South Luzon</title>
+        <title>ICONS SL | Official Partners</title>
         <link rel="icon" href="images/logo.png">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,6 @@
                 position: absolute;
                 top: 2rem;
                 left: 0;
-                z-index: 9999;
                 background-color: black;
                 color: rgb(113 113 122);
                 border-radius: 0.5rem;
@@ -59,7 +58,6 @@
                 color: white !important;
             }
 
-
             .aboutDropdown div a:hover::after{
                 width: 100%;
             }
@@ -81,18 +79,17 @@
             #mybtn:hover {
                 background-color: #022E75;
             }
-
+            
             html{
                 scroll-behavior: smooth;
             }
-
         </style>
 
     </head>
 
-    <body>
+    <body onload="blogsStartup()">
             <div>
-        <section class="header">
+        <section class="actheader">
             <nav>
                 <a href="index.html"><img src="images/logo.png"></a>
                 <div class="nav-links" id="navLinks">
@@ -106,7 +103,7 @@
                                 </path>
                             </svg>
 
-                            <div id="aboutDropdown" class="aboutDropdown">
+                            <div id="aboutDropdown" class="aboutDropdown" style="z-index: 10;">
                                 <div>
                                     <a href="./about.html#objectives">
                                         WHO WE ARE
@@ -122,88 +119,103 @@
 
 
                         </li>
-                        <li><a href="./activities.html">BLOGS AND ACTIVITIES</a></li>
+                        <li><a href="activities.html">BLOGS AND ACTIVITIES</a></li>
                         <li><a href="./connect.html">CONNECT</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="text-box">
-                <h1 class="maintext" style="text-shadow: 5px 5px #424241 !important;">ICONS South Luzon</h1>
-                <p class="description"><strong>Innovation Consortium</strong> or <strong>ICONS South Luzon</strong> is a dynamic network of incubators and enablers<br>
-                     that supports startup development and spurs innovation in South Luzon. We empower startups and drive regional<br>
-                      economic growth through innovative and sustainable solutions.</p>
-                <a href="" class="hero-btn">Learn More</a>
+                <h1 class="maintext" style="text-shadow: 5px 5px #424241 !important;">Official Members of ICONS South Luzon</h1>
             </div>
         </section>
         </div>
-
-        <!-- Background Video  -->
 
         <div class="lower">
             <video id="background-video" autoplay loop muted>
                 <source src="images/bg.mp4" type="video/mp4">
             </video>
+        <section class="hidden">
+            <section class="activities">
+                <h1 class="act-text">OFFICIAL PARTNERS</h1>
+                <div class="line"></div>
 
 
-    </div>
+                </div>
+            </section>
+            </section>
+            
+ 
+</div>
+            <section class="footer">
+                <h4>CONNECT WITH US</h4>
+    
+                <div class="icons">
+                    <a href="https://www.facebook.com/iconsSL"><i class="fa fa-facebook"></i></a>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+                <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce ♥</p><br>
 
-        <section class="footer">
-            <h4>CONNECT WITH US</h4>
+                <!-- Admin Login Button  -->
 
-            <div class="icons">
-                <a href="https://www.facebook.com/iconsSL"><i class="fa fa-facebook"></i></a>
-                <i class="fa fa-twitter"></i>
-                <i class="fa fa-instagram"></i>
-                <i class="fa fa-linkedin"></i>
-            </div>
-            <p class="footertext">© ICONS South Luzon 2023 | Made with love by Jax and Joyce ♥</p><br>
-            <a href="login.html" class="login">ADMIN LOGIN</a>
+                <a href="login.html" class="login">ADMIN LOGIN</a>
 
-            <button onclick="topFunction()" id="mybtn">
-                <i class="material-icons">arrow_upward</i>
-            </button> 
+                <!-- End of Admin Login Button  -->
+
+                <!-- Arrow Upward Button; Back To Top  -->
+                <button onclick="topFunction()" id="mybtn">
+                    <i class="material-icons">arrow_upward</i>
+                </button> 
+                <script>
+                    let mybutton = document.getElementById("mybtn");
+                    window.onscroll = function() {scrollFunction()};
+    
+                    function scrollFunction(){
+                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                            mybutton.style.display="block";
+                        } else {
+                            mybutton.style.display="none";
+                        }
+                    }
+                    function topFunction(){
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop=0;
+                    }
+                </script>
+                <!-- End of Arrow Upward Button  -->
+
+            </section>
             <script>
-                let mybutton = document.getElementById("mybtn");
-                window.onscroll = function() {scrollFunction()};
-
-                function scrollFunction(){
-                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                        mybutton.style.display="block";
+                let displayAbout = true;
+        
+                aboutDropdown = document.getElementById("aboutDropdown")
+                dropdownNavbarLink = document.getElementById("dropdownNavbarLink")
+        
+                
+        
+                function toggleAbout() {
+                    displayAbout = !displayAbout;
+                    if (displayAbout) {
+                        aboutDropdown.style.display = "none";
                     } else {
-                        mybutton.style.display="none";
+                        aboutDropdown.style.display = "block";
                     }
                 }
-                function topFunction(){
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop=0;
-                }
+        
+        
+        
+                window.addEventListener("click", function(event) {
+                    if (event.target != dropdownNavbarLink) {
+                        aboutDropdown.style.display = "none";
+                    } else {
+                        toggleAbout();
+                    }
+                });
+        
+        
             </script>
-        </section>
-    <script>
-        let displayAbout = true;
-
-        aboutDropdown = document.getElementById("aboutDropdown")
-        dropdownNavbarLink = document.getElementById("dropdownNavbarLink")
-
-        function toggleAbout() {
-            displayAbout = !displayAbout;
-            if (displayAbout) {
-                aboutDropdown.style.display = "none";
-            } else {
-                aboutDropdown.style.display = "block";
-            }
-        }
-
-        window.addEventListener("click", function(event) {
-            if (event.target != dropdownNavbarLink) {
-                aboutDropdown.style.display = "none";
-            } else {
-                toggleAbout();
-            }
-        });
-
-
-    </script>
+            <script src="icons.js" async defer></script>
     </body>
 </html>
