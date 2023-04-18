@@ -15,9 +15,6 @@
     <script defer src="nav.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-    
     <style>
 
         body {
@@ -196,7 +193,7 @@
 
 </head>
 
-<body class="bg-objective" onload="getObjectives()">
+<body class="bg-objective" onload="aboutStartup()">
 
     <!-- Background Video of the Page -->
     
@@ -394,7 +391,7 @@
 
 	<div id="default-carousel" class="relative" data-carousel="static">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+        <!--<div class="relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96"> -->
             <!-- Item 1 
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <div class="flex mt-10 mx-10 space-x-10">
@@ -611,6 +608,17 @@
     
     <!-- Official Partners  -->
 
+    <div class="text-4xl md:text-3xl font-bold text-center my-10 textcolor">
+        PROGRAMS
+        <div class="w-1/12 line"></div>
+    </div>
+
+    <div class="my-10 flex flex-wrap text-center justify-center lg:space-x-10" id="programs">
+
+    </div>
+
+    
+
     <section class="hiddenx">
         <div class="text-4xl md:text-3xl font-bold text-center my-10 textcolor">
             OFFICIAL PARTNERS
@@ -651,10 +659,12 @@
             </div>
         </div>
 
-        <div class="viewallpartners items-center">
-            <a href="./about.html" class="op-btn">View All Partners</a>
-        </div>
+
     </section>
+
+    <div class="viewallpartners flex justify-center">
+        <a href="./partners.html" class="op-btn">View All Partners</a>
+    </div>
     
 
     <!-- Footer  -->

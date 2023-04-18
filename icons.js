@@ -19,7 +19,8 @@ async function login() {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify({"username": username, "password": password})
     })
@@ -144,7 +145,8 @@ async function createActivity() {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify(
             {
@@ -286,7 +288,8 @@ async function sendEmail() {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify(body)
     })
@@ -318,7 +321,8 @@ async function editObjectives() {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify(body)
     })
@@ -406,7 +410,8 @@ async function deletePicture(id) {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         }
     })
         .then(response => response.json())
@@ -427,7 +432,8 @@ async function addPicture() {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify(body)
     })
@@ -548,7 +554,7 @@ async function getActivityPage(id) {
     sessionStorage.setItem('page_title', filtered.title);
     sessionStorage.setItem('page_image', filtered.image_url);
     sessionStorage.setItem('page_text', filtered.page_content);
-    location.replace("./act1.html");
+    location.replace("./detail-page.html");
 }
 
 async function loadPageDetails() {
@@ -571,7 +577,8 @@ async function updateMessage(id, bool) {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify(body)
     })
@@ -594,7 +601,8 @@ async function deleteMessage(id) {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         }
     })
         .then(response => response.json())
@@ -635,7 +643,8 @@ async function saveNewActivity(id) {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         },
         body: JSON.stringify(body)
     })
@@ -723,4 +732,45 @@ async function changePage(page)
 function numPages()
 {
     return Math.ceil(global_messages.length / records_per_page);
+}
+
+programs = []
+async function getPrograms() {
+
+    // This sets the activities content for the home.html 
+    fetch("http://18.138.58.216:8080/icons/programs")
+    .then((response) => response.json())
+    .then((data) => {
+        programs = data;
+        let programsText = '';
+        for (const program of data) { 
+            programsText += `<div class="max-w-sm rounded overflow-hidden shadow-lg mt-8">
+                                <a onclick="getProgramPage('${program._id}')">
+                                <img class="w-full" src="${program.image_url}" alt="${program.title}">
+                                <div class="px-6 py-4">
+                                    <div class="font-bold text-xl mb-2">${program.title}</div>
+                                    <p class="text-gray-700 text-base">
+                                    ${program.description}
+                                    </p>
+                                </div>
+                                </a>
+                            </div>`
+        }
+        document.getElementById('programs').innerHTML = programsText
+    });
+}
+
+async function aboutStartup(){
+    await getObjectives();
+    await getPrograms();
+}
+
+async function getProgramPage(id) {
+    var filtered = programs.filter(function (el) {
+        return el._id == id;
+      })[0];
+    sessionStorage.setItem('page_title', filtered.title);
+    sessionStorage.setItem('page_image', filtered.image_url);
+    sessionStorage.setItem('page_text', filtered.page_content);
+    location.replace("./detail-page.html");
 }
