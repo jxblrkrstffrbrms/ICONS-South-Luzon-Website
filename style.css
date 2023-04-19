@@ -183,12 +183,12 @@ nav .fa{
 }
 
 .about-col{
-    flex-basis: 31%;
+    flex-basis: 29%;
     background: #022e75;
     color: #000000;
     border-radius: 50px;
     margin-bottom: 3%;
-    padding: 20px 12px;
+    padding: 20px 10px;
     box-sizing: border-box;
     transition: 0.5s;
 }
@@ -197,13 +197,13 @@ p{
     text-align: center;
     margin: 10px;
     color:#ffffff;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .desc{
     color: #000000;
     font-weight: 100;
-    font-size: 18px;
+    font-size: 12px;
 }
 
 .about-col:hover{
