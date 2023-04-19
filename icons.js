@@ -745,7 +745,7 @@ async function getPrograms() {
         let programsText = '';
         for (const program of data) { 
             programsText += `<div class="max-w-sm rounded overflow-hidden shadow-lg mt-8">
-                                <a onclick="getProgramPage('${program._id}')">
+                                <a onclick="goToProgramContentPage('${program._id}')">
                                 <img class="w-full" src="${program.image_url}" alt="${program.title}">
                                 <div class="px-6 py-4">
                                     <div class="font-bold text-xl mb-2">${program.title}</div>
@@ -773,4 +773,45 @@ async function getProgramPage(id) {
     sessionStorage.setItem('page_image', filtered.image_url);
     sessionStorage.setItem('page_text', filtered.page_content);
     location.replace("./detail-page.html");
+}
+
+
+function goToProgramContentPage(id) {
+    sessionStorage.setItem('program_id', id)
+    location.replace("./programs.html");
+}
+
+async function getProgramContents() {
+     // This sets the program content for the about.html 
+     
+     fetch(`http://18.138.58.216:8080/icons/programs/${sessionStorage.getItem('program_id')}`)
+     .then((response) => response.json())
+     .then((data) => {
+        console.log(data)
+         programs = data;
+         let programsText = '';
+         for (const program of data) { 
+             programsText += `<div class="max-w-sm rounded overflow-hidden shadow-lg mt-8">
+                                 <a onclick="getProgramPage('${program._id}')">
+                                 <img class="w-full" src="${program.image_url}" alt="${program.title}">
+                                 <div class="px-6 py-4">
+                                     <div class="font-bold text-xl mb-2">${program.title}</div>
+                                     <p class="text-gray-700 text-base">
+                                     ${program.description}
+                                     </p>
+                                 </div>
+                                 </a>
+                             </div>`
+         }
+
+
+        if (data.length == 0) {
+            programsText = '<h1>There is current no available content for this program.</h1>'
+            document.getElementById('program_content').classList.add("h-56")
+        }
+
+
+         document.getElementById('program_content').innerHTML = programsText
+
+     });
 }
