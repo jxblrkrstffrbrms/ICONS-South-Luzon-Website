@@ -176,7 +176,8 @@ async function deleteActivity(id) {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
         }
     })
        .then(response => response.json())
@@ -188,6 +189,50 @@ async function deleteActivity(id) {
        })
 }
 
+async function deleteProgram(id) {
+
+    // We delete the activity using this endpoint
+    // with the DELETE method 
+
+    await fetch(`http://18.138.58.216:8080/icons/programs/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        }
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Deleted program successfully')
+                adminGetPrograms();
+            }
+       })
+}
+
+
+async function deleteProgramContent(id) {
+
+    // We delete the activity using this endpoint
+    // with the DELETE method 
+
+    await fetch(`http://18.138.58.216:8080/icons/programs/content/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        }
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Deleted program content successfully')
+                adminSetProgramContents();
+            }
+       })
+}
 
 
 let activities_array = []
@@ -620,8 +665,6 @@ function setBlogsModal(id) {
         return el._id == id;
       })[0];
 
-      console.log(filtered)
-      console.log(filtered.page_text)
     
       document.getElementById('blog_title_edit').value = filtered.title;
       document.getElementById('blog_desc_edit').value = filtered.text;
@@ -744,9 +787,9 @@ async function getPrograms() {
         programs = data;
         let programsText = '';
         for (const program of data) { 
-            programsText += `<div class="max-w-sm rounded overflow-hidden shadow-lg mt-8">
+            programsText += `<div class="max-w-sm br-max overflow-hidden shadow-lg mt-8">
                                 <a onclick="goToProgramContentPage('${program._id}')">
-                                <img class="w-full" src="${program.image_url}" alt="${program.title}">
+                                <img class="programCard" src="${program.image_url}" alt="${program.title}">
                                 <div class="px-6 py-4">
                                     <div class="font-bold text-xl mb-2">${program.title}</div>
                                     <p class="text-gray-700 text-base">
@@ -760,9 +803,121 @@ async function getPrograms() {
     });
 }
 
+async function adminGetPrograms() {
+
+    // This sets the program content for the about.html 
+    fetch("http://18.138.58.216:8080/icons/programs")
+    .then((response) => response.json())
+    .then((data) => {
+        programs = data;
+        let programsText = '';
+        for (const program of data) { 
+            programsText += `<div class="col-md-4">
+                                <div class="card" style="width: 100%;">
+                                    <img class="card-img-top" src="${program.image_url}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${program.title}</h5>
+                                        <p class="card-text" style="text-align: justify;">${program.description}</p>
+                                        <button class="edit_button" onclick="setBlogsModal('${program._id}')" data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
+                                        <button class="manage_button" style="margin-right: 4px;" onclick="viewProgram('${program._id}')">MANAGE</a>
+                                        <button class="add_button" style="margin-right: 4px;" onclick="goToAddContent('${program._id}')">ADD</a>
+                                        <button class="delete_button" onclick="deleteProgram('${program._id}')">DELETE</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>`
+        }
+        document.getElementById('programs').innerHTML = programsText
+    });
+}
+
+async function viewProgram(id) {
+    sessionStorage.setItem('program_id', id)
+    location.replace("./view_program.html");
+}
+program_contents = []
+async function adminSetProgramContents() {
+    // This sets the program content for the about.html 
+    
+    fetch(`http://18.138.58.216:8080/icons/programs/${sessionStorage.getItem('program_id')}`)
+    .then((response) => response.json())
+    .then((data) => {
+        programs = data;
+        program_contents = data;
+        let programsText = '';
+        for (const program of data) { 
+            programsText += `<div class="col-md-4">
+                                <div class="card" style="width: 100%;">
+                                    <img class="card-img-top" src="${program.image_url}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${program.title}</h5>
+                                        <p class="card-text" style="text-align: justify;">${program.description}</p>    
+                                        
+                                        <button class="edit_button" onclick="setProgramContentModal('${program._id}')" data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
+                                        <button class="delete_button" onclick="deleteProgramContent('${program._id}')">DELETE</a>
+                                    </div>
+                                </div>
+                            </div>`
+        }
+
+
+       if (data.length == 0) {
+           programsText = '<h1>There is current no available content for this program.</h1>'
+           document.getElementById('program_content').classList.add("h-56")
+       }
+
+
+        document.getElementById('program_content').innerHTML = programsText
+
+    });
+}
+
 async function aboutStartup(){
     await getObjectives();
     await getPrograms();
+}
+
+function setProgramContentModal(id) {
+    var filtered = program_contents.filter(function (el) {
+        return el._id == id;
+      })[0];
+
+      console.log(filtered)
+    
+      document.getElementById('blog_title_edit').value = filtered.title;
+      document.getElementById('blog_desc_edit').value = filtered.description;
+      document.getElementById('blog_url_edit').value = filtered.image_url;
+      document.getElementById('blog_page_content_edit').value = filtered.page_content;
+
+      document.getElementById('editActivitiesSaveButton').setAttribute('onclick',`saveNewProgramContent('${id}')`)
+}
+
+async function saveNewProgramContent(id) {
+    const body = {
+        'title': document.getElementById('blog_title_edit').value,
+        'description': document.getElementById('blog_desc_edit').value,
+        'image_url': document.getElementById('blog_url_edit').value,
+        'page_content': document.getElementById('blog_page_content_edit').value,
+        'program_id': sessionStorage.getItem('program_id')
+    }
+
+    await fetch(`http://18.138.58.216:8080/icons/programs/content/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(body)
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Succesfully updated program content')
+                location.reload();
+        }
+    })
+    location.replace("./view_program.html")
 }
 
 async function getProgramPage(id) {
@@ -772,7 +927,7 @@ async function getProgramPage(id) {
     sessionStorage.setItem('page_title', filtered.title);
     sessionStorage.setItem('page_image', filtered.image_url);
     sessionStorage.setItem('page_text', filtered.page_content);
-    location.replace("./detail-page.html");
+    location.replace("./program-page.html");
 }
 
 
@@ -781,13 +936,17 @@ function goToProgramContentPage(id) {
     location.replace("./programs.html");
 }
 
+function goToAddContent(id) {
+    sessionStorage.setItem('program_id', id)
+    location.replace("./add_program_content.html");
+}
+
 async function getProgramContents() {
      // This sets the program content for the about.html 
      
      fetch(`http://18.138.58.216:8080/icons/programs/${sessionStorage.getItem('program_id')}`)
      .then((response) => response.json())
      .then((data) => {
-        console.log(data)
          programs = data;
          let programsText = '';
          for (const program of data) { 
@@ -814,4 +973,75 @@ async function getProgramContents() {
          document.getElementById('program_content').innerHTML = programsText
 
      });
+}
+
+
+async function createProgram() {
+
+    // We get the inputs from the html fields in add.html
+    // these are the three fields that we are collecting to create an activity
+    image_url = document.getElementById('image_url').value;
+    title = document.getElementById('title').value;
+    text = document.getElementById('text').value;
+
+
+    await fetch('http://18.138.58.216:8080/icons/programs', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(
+            {
+                "image_url": image_url,
+                "title": title,
+                "description": text,
+            }
+        )
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully added a new program')
+                location.reload();
+            }
+       })
+}
+
+async function createProgramContent()  {
+
+    // We get the inputs from the html fields in add.html
+    // these are the three fields that we are collecting to create an activity
+    image_url = document.getElementById('image_url').value;
+    title = document.getElementById('title').value;
+    text = document.getElementById('text').value;
+    page_text = document.getElementById('page_text').value;
+
+
+
+    await fetch('http://18.138.58.216:8080/icons/programs/content', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(
+            {
+                "image_url": image_url,
+                "title": title,
+                "description": text,
+                "page_content": page_text,
+                "program_id": sessionStorage.getItem('program_id')
+            }
+        )
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully added a new program content')
+                location.reload();
+            }
+       })
 }

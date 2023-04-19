@@ -193,6 +193,15 @@
         .logo-height {
             height: 5rem;
         }
+
+        .br-max {
+            border-radius: 10%;
+        }
+
+        .programCard {
+            width: 25rem;
+            height: 22rem;
+        }
         
     </style>
 
@@ -238,13 +247,11 @@
                                     WHO WE ARE
                                 </a>
 
-                                <a href="./about.html#ecosystem" class="text-right font-bold text-base text-zinc-500    hover:text-white">
-                                    ECOSYSTEM
+                                <a href="./about.html#programsview" class="text-right font-bold text-base text-zinc-500  hover:text-white">
+                                   PROGRAM
                                 </a>
 
-                                <a href="./about.html#orgstructure" class="text-right font-bold text-base text-zinc-500    hover:text-white">
-                                    ORGANIZATIONAL STRUCTURE
-                                </a>
+
                             </div>
                         </div>
 
@@ -291,12 +298,8 @@
                                     WHO WE ARE
                                 </a>
 
-                                <a href="./about.html#ecosystem" class="text-right font-bold text-base text-zinc-500    hover:text-white" onclick="toggleMobileMenu()"> 
-                                    ECOSYSTEM
-                                </a>
-
-                                <a href=".about.html#org" class="text-right font-bold text-base text-zinc-500    hover:text-white" onclick="toggleMobileMenu()">
-                                    ORGANIZATIONAL STRUCTURE
+                                <a href="./about.html#programsview" onclick="toggleMobileMenu()" class="text-right font-bold text-base text-zinc-500  hover:text-white">
+                                    PROGRAMS
                                 </a>
                             </div>
                         </div>
@@ -612,12 +615,13 @@
 
     
     <!-- About / Programs  -->
-
+    <div id="programsview"></div>
     <div class="text-4xl md:text-4xl font-bold text-center my-10 textcolor">
         PROGRAMS
         <div class="w-1/12 line"></div>
         
     </div>
+
 
     <div class="my-10 flex flex-wrap text-center justify-center lg:space-x-10" id="programs">
 
