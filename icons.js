@@ -737,7 +737,7 @@ function numPages()
 programs = []
 async function getPrograms() {
 
-    // This sets the activities content for the home.html 
+    // This sets the program content for the about.html 
     fetch("http://18.138.58.216:8080/icons/programs")
     .then((response) => response.json())
     .then((data) => {
