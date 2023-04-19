@@ -38,10 +38,17 @@
                 display: inline;
             }
 
-            .bg-plain {
-                background-image: url(./images/bg.jpg);
-                background-attachment: fixed;
-            }
+            #background-video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+        }
 
             a {
                 text-decoration: none;
@@ -83,7 +90,11 @@
 
         </style>
     </head>
-    <body class="bg-plain" onload="homeStartup()">
+    <body class="" onload="homeStartup()">
+
+        <video id ="background-video"autoplay loop muted>
+            <source src="images/bg.mp4" type="video/mp4"/>
+        </video>
 
         <!-- This is the start of the sidebar section -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
