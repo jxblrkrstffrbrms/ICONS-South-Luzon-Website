@@ -683,7 +683,7 @@ async function saveNewActivity(id) {
         'title': document.getElementById('blog_title_edit').value,
         'text': document.getElementById('blog_desc_edit').value,
         'image_url': document.getElementById('blog_url_edit').value,
-        'page_content': document.getElementById('blog_page_content_edit').value
+        'page_text': document.getElementById('blog_page_content_edit').value
     }
 
     await fetch(`http://18.138.58.216:8080/icons/activities/${id}`, {
