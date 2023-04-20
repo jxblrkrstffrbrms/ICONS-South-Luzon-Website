@@ -1,3 +1,27 @@
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else{
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden, .hd, .hidden1, .hiddenx');
+hiddenElements.forEach((el) => observer.observe(el));
+
+var navLinks = document.getElementById("navLinks");
+
+            function showMenu(){
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu(){
+                navLinks.style.right = "-200px";
+            }
+
+
 const carousel = document.querySelector(".carousel"),
   firstImg = carousel.querySelectorAll("img")[0];
 arrowIcons = document.querySelectorAll(".wrapper .imgbutton");
@@ -89,27 +113,6 @@ carousel.addEventListener("mouseup", dragStop);
 carousel.addEventListener("mouseleave", dragStop);
 carousel.addEventListener("touchend", dragStop);
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else{
-            entry.target.classList.remove('show');
-        }
-    });
-});
 
-const hiddenElements = document.querySelectorAll('.hidden, .hd, .hidden1, .hiddenx');
-hiddenElements.forEach((el) => observer.observe(el));
-
-var navLinks = document.getElementById("navLinks");
-
-            function showMenu(){
-                navLinks.style.right = "0";
-            }
-
-            function hideMenu(){
-                navLinks.style.right = "-200px";
-            }
 
 
