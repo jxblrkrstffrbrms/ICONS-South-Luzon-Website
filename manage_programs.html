@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ICONS SL | Admin Page</title>
+        <title>ICONS SL | Manage Programs</title>
         <link rel="icon" href="images/logo.png">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,17 +38,10 @@
                 display: inline;
             }
 
-            #background-video {
-                width: 100vw;
-                height: 100vh;
-                object-fit: cover;
-                position: fixed;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                z-index: -1;
-        }
+            .bg-plain {
+                background-image: url(./images/bg.jpg);
+                background-attachment: fixed;
+            }
 
             a {
                 text-decoration: none;
@@ -139,11 +132,9 @@
 
         </style>
     </head>
-    <body class="" onload="adminGetPrograms()">
+    <body class="bg-plain" onload="adminGetPrograms()">
 
-        <video id ="background-video"autoplay loop muted>
-            <source src="images/bg.mp4" type="video/mp4"/>
-        </video>
+
 
         <!-- This is the start of the sidebar section -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
