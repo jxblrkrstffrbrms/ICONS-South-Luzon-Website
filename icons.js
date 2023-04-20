@@ -669,7 +669,7 @@ function setBlogsModal(id) {
       document.getElementById('blog_title_edit').value = filtered.title;
       document.getElementById('blog_desc_edit').value = filtered.text;
       document.getElementById('blog_url_edit').value = filtered.image_url;
-      document.getElementById('blog_page_content_edit').value = filtered.page_content;
+      document.getElementById('blog_page_content_edit').value = filtered.page_text;
 
       document.getElementById('editActivitiesSaveButton').setAttribute('onclick',`saveNewActivity('${id}')`)
 }
