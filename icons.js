@@ -392,22 +392,11 @@ async function userGetGallery() {
     fetch("http://18.138.58.216:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
-        let galleryPreText = '';
         let galleryText = '';
-        let galleryPostText = '';
-        let counter = 1;
-        acts = document.getElementById('activities').innerHTML;
         for (const picture of data) { 
-            galleryPreText += `<input type="radio" name="r" id="r${counter}">`
-            const s1 = counter == 1 ? "s1" : "";
-            galleryText += `<div class="slide ${s1}">
-                                <img src="${picture.image_url}">
-                            </div>`
-            galleryPostText += `<label for="r${counter}" class="bar"></label>`
-            counter+=1;
+            galleryText += `<img src="${picture.image_url}" alt="img" draggable="false">`
         }
-
-        document.getElementById('slidesContent').innerHTML = galleryPreText + galleryText + ` <div class="navigation" id="navigation"> ${galleryPostText} </div>`
+        document.getElementById('gallery').innerHTML = galleryText 
         
     });
 }
