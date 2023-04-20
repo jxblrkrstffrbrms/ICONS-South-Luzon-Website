@@ -47,6 +47,14 @@
                text-align: justify;
             }
 
+            pre {
+                white-space: pre-wrap;       /* Since CSS 2.1 */
+                white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+                white-space: -pre-wrap;      /* Opera 4-6 */
+                white-space: -o-pre-wrap;    /* Opera 7 */
+                word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            }
+
         </style>
     </head>
 
@@ -94,11 +102,10 @@
         </div>
 
 
-        
-            <section class="news-desc">
+            <section class="news-desc" style="overflow: hidden;">
 
-            <div class="news-paragraph"><br>
-                <p class="news-proper text-center" id="page_text"><br><br><br></p>
+            <div class="news-paragraph" ><br>
+                <pre class="news-proper text-center" id="page_text"></pre>
             </div>
         </section>
 
