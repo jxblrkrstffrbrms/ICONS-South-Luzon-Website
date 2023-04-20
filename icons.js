@@ -598,7 +598,7 @@ async function getActivityPage(id) {
       })[0];
     sessionStorage.setItem('page_title', filtered.title);
     sessionStorage.setItem('page_image', filtered.image_url);
-    sessionStorage.setItem('page_text', filtered.page_content);
+    sessionStorage.setItem('page_text', filtered.page_text);
     location.replace("./detail-page.html");
 }
 
