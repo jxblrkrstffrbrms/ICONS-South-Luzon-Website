@@ -360,6 +360,7 @@ p{
     font-weight: 100;
     padding:5%;
     color: #000000;
+    text-align: justify center;
 }
 
 .act:hover{
@@ -629,9 +630,9 @@ input[name="r"]{
 
 .news-heading{
     color: #ffffff;
-    font-size: 75px;
-    padding-top: 15%;
-    font-weight: 700;
+    font-size: 60px;
+    padding-top: 10%;
+    font-weight: 600;
     left: auto;
 }
 

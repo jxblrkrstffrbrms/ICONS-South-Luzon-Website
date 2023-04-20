@@ -160,7 +160,7 @@ async function createActivity() {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully Added a New Activity')
+                alert('Successfully added a new activity')
                 location.reload();
             }
        })
@@ -485,7 +485,7 @@ async function addPicture() {
         .then(response => response.json())
         .then(response => {
             if (response.message == 'OK') {
-                alert('Successfully Added a New Picture')
+                alert('Successfully added a new picture')
                 location.reload();
         }
     })
@@ -694,7 +694,7 @@ async function saveNewActivity(id) {
        .then(response => response.json())
        .then(response => {
             if (response.message == 'OK') {
-                alert('Succesfully Updated Activity')
+                alert('Succesfully updated activity')
                 location.reload();
         }
     })
