@@ -324,7 +324,8 @@ async function sendEmail() {
     const body = {
         'email': email,
         'subject': name,
-        'message': message
+        'message': message,
+        'read': false
     }
 
 
@@ -519,8 +520,11 @@ async function toggleUnread() {
         await fetch("http://18.138.58.216:8080/icons/contact")
         .then((response) => response.json())
         .then((data) => {
+            console.log(data)
+            console.log('mga unread')
             let messages = data.reverse()
             messages = messages.filter(message => message.read == false);
+            console.log(messages)
             global_messages = messages;
         });
         toggle_button.innerHTML = 'SHOW READ MESSAGES';
