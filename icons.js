@@ -67,6 +67,7 @@ async function getActivities() {
                             <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
+                            <span>${activity.created}</span>
                             <p class="card-text" style="text-align: justify;">${activity.text}</p>
                             </div>
                         </div></div>`
@@ -101,6 +102,7 @@ async function editgetActivities() {
                             <img class="card-img-top" src="${activity.image_url}" alt="Card image cap">
                             <div class="card-body">
                             <h5 class="card-title">${activity.title}</h5>
+                            <span>${activity.created}</span>
                             <p class="card-text" style="text-align: justify;">${activity.text}</p>
                             <div></div>
                             <button class="edit_button" onclick="setBlogsModal('${activity._id}')"  data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
@@ -260,6 +262,7 @@ async function setUserActivities() {
                                 <img src="${activity.image_url}"></a>
                                 <h4 class="act-title">${activity.title}</h4>
                                 <div class="line2"></div>
+                                <span class="act-desc">${activity.created}</span>
                                 <p class="act-desc">${activity.text}</p>
                               </div>`
                       
