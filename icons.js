@@ -1,3 +1,6 @@
+// 18.138.58.216 is the current ip address of the api
+// change this when the api is deployed for final release
+
 
 async function login() {
 
@@ -214,7 +217,7 @@ async function deleteProgram(id) {
 
 async function deleteProgramContent(id) {
 
-    // We delete the activity using this endpoint
+    // We delete the program content using this endpoint
     // with the DELETE method 
 
     await fetch(`http://18.138.58.216:8080/icons/programs/content/${id}`, {
@@ -316,6 +319,8 @@ async function sendEmail() {
     const name = document.getElementById('name').value;
     const message = document.getElementById('message').value;
 
+    // These are the values to get the inputs from the connect page
+
     if (!email || !name || !message) {
         alert('Please fill in all required fields')
         return 
@@ -329,7 +334,7 @@ async function sendEmail() {
     }
 
 
-
+    // This is the api call to send the email details to the api 
      await fetch('http://18.138.58.216:8080/icons/contact', {
         method: 'POST',
         headers: {
@@ -348,7 +353,7 @@ async function sendEmail() {
     })
 }
 
-
+// This is the api call to set the objectives content
 async function setObjectives() {
     fetch("http://18.138.58.216:8080/icons/objectives")
         .then((response) => response.json())
@@ -359,6 +364,7 @@ async function setObjectives() {
     });
 }
 
+// This is the api call to update the objectives content
 async function editObjectives() {
     const body = {
         'text': document.getElementById('edit_objectives').value
@@ -380,7 +386,6 @@ async function editObjectives() {
         }
     })
 }
-
 
 async function userGetGallery() {
 
@@ -412,7 +417,7 @@ async function adminGalleryStartup() {
 async function getPictures() {
 
 
-    // This gets the gallery content for the activities.html 
+    // This gets the gallery content for the gallery.html 
     fetch("http://18.138.58.216:8080/icons/gallery")
     .then((response) => response.json())
     .then((data) => {
@@ -463,6 +468,8 @@ async function addPicture() {
     const body = {
         'image_url': document.getElementById('add_picture').value
     }
+
+    // This is the api call to add a picture
     await fetch('http://18.138.58.216:8080/icons/gallery', {
         method: 'POST',
         headers: {
@@ -604,7 +611,7 @@ async function loadPageDetails() {
 
 async function updateMessage(id, bool) {
 
-    // We update the messages using this endpoint
+    // We update the messages' status (read/unread) using this endpoint
 
 
     const body = {
@@ -658,7 +665,7 @@ function setBlogsModal(id) {
         return el._id == id;
       })[0];
 
-    
+      // This sets the content of the modal in blogs.html
       document.getElementById('blog_title_edit').value = filtered.title;
       document.getElementById('blog_desc_edit').value = filtered.text;
       document.getElementById('blog_url_edit').value = filtered.image_url;
@@ -675,6 +682,7 @@ async function saveNewActivity(id) {
         'page_text': document.getElementById('blog_page_content_edit').value
     }
 
+    // This is the api call to update an activity
     await fetch(`http://18.138.58.216:8080/icons/activities/${id}`, {
         method: 'PATCH',
         headers: {
@@ -875,7 +883,8 @@ function setProgramContentModal(id) {
         return el._id == id;
       })[0];
 
-      console.log(filtered)
+
+      // This sets the content of the modal when editing a program content
     
       document.getElementById('blog_title_edit').value = filtered.title;
       document.getElementById('blog_desc_edit').value = filtered.description;
@@ -892,6 +901,8 @@ function setProgramModal(id) {
       })[0];
 
       console.log(filtered)
+
+      // This sets the content of the modal when editing a program
     
       document.getElementById('blog_title_edit').value = filtered.title;
       document.getElementById('blog_desc_edit').value = filtered.description;
@@ -935,6 +946,7 @@ async function saveNewProgramContent(id) {
         'program_id': sessionStorage.getItem('program_id')
     }
 
+    // This is the api call to update the newly edited program content
     await fetch(`http://18.138.58.216:8080/icons/programs/content/${id}`, {
         method: 'PATCH',
         headers: {
@@ -1013,7 +1025,7 @@ async function getProgramContents() {
 async function createProgram() {
 
     // We get the inputs from the html fields in add.html
-    // these are the three fields that we are collecting to create an activity
+    // these are the three fields that we are collecting to create a program
     image_url = document.getElementById('image_url').value;
     title = document.getElementById('title').value;
     text = document.getElementById('text').value;
@@ -1046,7 +1058,7 @@ async function createProgram() {
 async function createProgramContent()  {
 
     // We get the inputs from the html fields in add.html
-    // these are the three fields that we are collecting to create an activity
+    // these are the four fields that we are collecting to create a program content
     image_url = document.getElementById('image_url').value;
     title = document.getElementById('title').value;
     text = document.getElementById('text').value;
