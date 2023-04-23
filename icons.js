@@ -811,7 +811,7 @@ async function adminGetPrograms() {
                                     <div class="card-body">
                                         <h5 class="card-title">${program.title}</h5>
                                         <p class="card-text" style="text-align: justify;">${program.description}</p>
-                                        <button class="edit_button" onclick="setBlogsModal('${program._id}')" data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
+                                        <button class="edit_button" onclick="setProgramModal('${program._id}')" data-bs-toggle="modal" data-bs-target="#myModal">EDIT</button>
                                         <button class="manage_button" style="margin-right: 4px;" onclick="viewProgram('${program._id}')">MANAGE</a>
                                         <button class="add_button" style="margin-right: 4px;" onclick="goToAddContent('${program._id}')">ADD</a>
                                         <button class="delete_button" onclick="deleteProgram('${program._id}')">DELETE</a>
@@ -883,6 +883,47 @@ function setProgramContentModal(id) {
       document.getElementById('blog_page_content_edit').value = filtered.page_content;
 
       document.getElementById('editActivitiesSaveButton').setAttribute('onclick',`saveNewProgramContent('${id}')`)
+}
+
+
+function setProgramModal(id) {
+    var filtered = programs.filter(function (el) {
+        return el._id == id;
+      })[0];
+
+      console.log(filtered)
+    
+      document.getElementById('blog_title_edit').value = filtered.title;
+      document.getElementById('blog_desc_edit').value = filtered.description;
+      document.getElementById('blog_url_edit').value = filtered.image_url;
+
+      document.getElementById('editActivitiesSaveButton').setAttribute('onclick',`saveNewProgram('${id}')`)
+}
+
+async function saveNewProgram(id) {
+    const body = {
+        'title': document.getElementById('blog_title_edit').value,
+        'description': document.getElementById('blog_desc_edit').value,
+        'image_url': document.getElementById('blog_url_edit').value,
+    }
+
+    await fetch(`http://18.138.58.216:8080/icons/programs/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(body)
+    })
+       .then(response => response.json())
+       .then(response => {
+            if (response.message == 'OK') {
+                alert('Successfully updated program')
+                location.reload();
+        }
+    })
+    location.replace("./manage_programs.html")
 }
 
 async function saveNewProgramContent(id) {

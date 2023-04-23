@@ -129,6 +129,18 @@
                 background-color: #0b691f;
             }
 
+            .save_button {
+                border: none;
+                border-radius: 3px;
+                color: white;
+                background-color: #022E75;
+                padding: 5px 10px;
+            }
+
+            .save_button:hover {
+                background-color: #022E75;
+            }
+
 
         </style>
     </head>
@@ -249,6 +261,46 @@
                 </div>
             </div>
         </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h3 class="modal-title">Edit Recent Article</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+            
+                <!-- Modal body -->
+                <div class="modal-body">
+    
+                    <div class="">
+                        <label for="exampleInputEmail1" class="form-label"><b>Title</b></label>
+                        <input type="text" class="form-control" id="blog_title_edit" aria-describedby="emailHelp"> </textarea>
+                    </div>
+    
+                    <div class="">
+                        <label for="exampleInputEmail1" class="form-label"><b>Description</b></label>
+                        <input type="text" class="form-control" id="blog_desc_edit" aria-describedby="emailHelp"> </textarea>
+                    </div>
+    
+                    <div class="">
+                        <label for="exampleInputEmail1" class="form-label"><b>Image Link</b></label>
+                        <input type="text" class="form-control" id="blog_url_edit" aria-describedby="emailHelp"> </textarea>
+                    </div>
+                </div>
+            
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="save_button" data-bs-dismiss="modal" id="editActivitiesSaveButton">Save</button>
+                    <button type="button" class="delete_button" data-bs-dismiss="modal">Close</button>
+                </div>
+            
+                </div>
+            </div>
+            </div>
 
         <!-- Arrow Upward Button; Back to Top  -->
 
