@@ -47,6 +47,18 @@
                text-align: justify;
             }
 
+            #background-video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+
 
             pre {
                 white-space: pre-wrap;       /* Since CSS 2.1 */
@@ -95,6 +107,10 @@
         </section>
         </div>
 
+        <video id ="background-video"autoplay loop muted>
+            <source src="images/bg.mp4" type="video/mp4"/>
+        </video>
+        
         <div style="margin-top: 15px; text-align: center;">
             <a href="./programs.html" class="btn btn-danger" 
             style="display: flex;  align-items: center; text-decoration: none; border-radius: 3px !important; margin-left: 10px; padding-top: auto; padding-left: 10px; padding-right: 10px;">
